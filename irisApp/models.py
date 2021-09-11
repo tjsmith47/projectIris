@@ -53,39 +53,23 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=100)
-    admin = models.BooleanField(default=False)
     # machines = a list of machines associated with a given user
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __repr__(self):
-        if self.admin == True:
-            return "ADMIN USER: {} {} | Email: {} | Password: {}".format(
-                self.first_name, self.last_name, self.email, self.password
-                )
-        else:
-            return "Name: {} {} | Email: {} | Password: {}".format(
-                self.first_name, self.last_name, self.email, self.password
-                )
+        return '{} {}'.format(self.first_name, self.last_name)
     objects = UserManager()
 
 class Machine(models.Model):
     # id
+    name = models.CharField(max_length=50)
     owner = models.ForeignKey(User, related_name="machines", on_delete = models.CASCADE)
-    brand = models.CharField(max_length=50, default='Apple')
-    model = models.CharField(max_length=50)
     op_sys = models.CharField(max_length=50, default='macOS 12.0')
-    cpu = models.CharField(max_length=50)
-    memory = models.IntegerField()
-    mem_type = models.BooleanField(default=False)
-    storage = models.CharField(max_length=50)
+    ip_add_local = models.GenericIPAddressField(null=True, blank=True)
+    ip_add_remote = models.GenericIPAddressField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __repr__(self):
-        if self.mem_type == False:
-            return "{}'s {} ({}). Specs: OS - {}, CPU - {}, RAM - {}GB, Storpassword - {}".format(
-                self.owner, self.model, self.brand, self.op_sys, self.cpu, self.memory, self.storage
-                )
-        else:
-            return "{}'s {} ({}). Specs: OS - {}, CPU - {}, RAM - {}TB, Storpassword - {}".format(
-                self.owner, self.model, self.brand, self.op_sys, self.cpu, self.memory, self.storage
-                )
+        return "{} {} ({})".format(
+            self.name, self.owner, self.op_sys
+            )

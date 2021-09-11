@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,5 +28,142 @@
     <footer class="btn-group" role="group" id="logout" aria-label="Basic mixed styles example">
         <a href="/logout" class="btn btn-danger">Log Out</a> 
     </footer>
+</body>
+</html> {% endcomment %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Quotable Quotes User Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="container-fluid gx-0 mx-0 px-0" id="white">
+    <nav class="navbar fixed-top navbar-dark bg-dark justify-content-between" role="group">
+        <a href="" class="navbar-brand"><h1 class="h1">Welcome, {{ request.session.first_name }}!</h1></a> 
+        <div class="btn-group inline" role="group">
+            <a href="/dashboard/quotes/{{ logged_user.id }}" class="btn btn-primary">My Posts</a>
+            <a href="/logout" class="btn btn-danger">Logout</a> 
+        </div>
+    </nav>
+    <div class="justify-content-center gx-0 mx-0 px-0">
+        <div class="row px-0" id="main2">
+            <div class='row row-cols-3' id="content">
+                <div class="col-xl py-2" id='fav1'>
+                    <h2 class="p-3">All Quotes</h2>
+                    <div class="text-center" id="quotediv">
+                        <em class="text-center" id="favdiv"></em>
+                        <em class="text-center" id="favdiv2"></em>
+                    </div>
+                    <div class="row-md-12">
+                        {% if not_faved == True %}
+                            {% for quote in not_faved %}
+                            <div class="container">
+                                <div class="row row-cols-1">
+                                    <div class="text-left" id="fav2">
+                                        <p id="{{ quote.id }}">{{ quote.quoted_by }}: {{ quote.message }}</p>
+                                        <div class="container bottom">
+                                            <a class="align-self-left" href="/quotes/user/{{ quote.uploaded_by }}">Added by {{ quote.uploaded_by.first_name }}</a> |
+                                            <a class="align-self-right" href="/quotes/{{ quote.id }}/fav">Add to Favorites</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="container">
+                                <h2 class="h2 text-center">Nobody has posted yet!</h2>
+                                <p class="h3 p-5 text-center">Submit a Quotable Quote of your own in the middle for all to appreciate!</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-xl m-0" id="fav1">
+                    {% if messages %}
+                    <ul class="message">
+                        {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <form action='/quotes/user/{{ logged_user.id }}/new' class="h-100 w-100 m-0"  method='POST'>
+                        {% csrf_token %}
+                        <!-- Title Input Field -->
+                        <h2 class="h1 p-1">Add A New Quote!</h2>
+                        <em id="favdiv"></em>
+                        <div class="row-md-12">
+                            <!-- Quoted By Input Field -->
+                            <div class="row row-cols-1">
+                                <div class="col px-3 text-left">
+                                    <label class="row-form-label" for="colFormLabel"><h4>Quoted By:</h4></label>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" type="text" id="colFormLabel" name="quoted_by" value="{{ quote.quoted_by }}" aria-label="title">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row-md-12">
+                        <!-- Message Input Field -->
+                            <div class="row row-cols-1">
+                                <div class="col px-3 text-left">
+                                    <label class="col-form-label" for="description"><h4>Message: </h4></label>
+                                </div>
+                                <div class="col">
+                                    <textarea class="form-control" type="textarea" cols="30" rows="15" name="message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row p-5 text-center">
+                            <!-- Submit Button -->
+                            <input class="btn btn-success  btn-lg btn-block active" type="submit" value="Submit" aria-label="submit">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl py-2" id="fav1">
+                    <h2 class="p-3">Your Favorites</h2>
+                    <div class="text-center" id="quotediv">
+                        <em class="text-center" id="favdiv"></em>
+                        <em class="text-center" id="favdiv2"></em>
+                    </div>
+                    <div class="row-md-12">
+                        {% if fav_quotes == True %}
+                            {% for quote in fav_quotes %}
+                            <div class="container">
+                                <div class="row row-cols-1">
+                                    <div class="text-left" id="fav2">
+                                        <p id="{{ quote.id }}">{{ quote.quoted_by }}: {{ quote.message }}</p>
+                                        {% if logged_user.id == user.id %}
+                                            <div class="btn-group" role="group">
+                                                <a href="/quotes/{{ quote.id }}/edit" class="btn btn-secondary">Edit Post</a>
+                                                <a href="/quotes/ {{ quote.id }}/destroy" class="btn btn-warning">Delete Post</a> 
+                                            </div>
+                                        {% else %}
+                                            <a class="text-right" href="/quotes/{{ quote.id }}/fav">Remove from Favorites</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="container">
+                                <h2 class="h2 text-center">You have no favorites!</h2>
+                                <p class="h3 p-5 text-center">Please check out some of the quotes on the left, or add one of your own!</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -10,40 +10,16 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <div class="main">
-        <div class="greeting">
-            <h1>Welcome to Jarvis Protocol.</h1>
-            <h2 class="h1">- Peep our Crew -</h2>
-        </div>
-        <em></em>
-        <div class="crew">
-            <table class="table table-md table-hoveer table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for user in all_users %}
-                    <tr>
-                        <th scope="row">{{user.id}}</th>
-                        <td>{{user.first_name}}</td>
-                        <td>{{user.last_name}}</td>
-                        <td>{{user.email}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="register">
-            <em id="em2"></em>
-            <h2>Become fam.</h2>
-            <div class="container">
-            {% if messages %}
+<body class="container-fluid gx-0 mx-0 px-0 w-100">
+    <nav class="navbar fixed-top navbar-dark bg-danger justify-content-center" id="nav1" role="group">
+        <a href="" class="navbar-brand"><h1 class="h1">Welcome to Jarvis Protocol.</h1></a> 
+    </nav>
+    <div class="container-fluid px-0">
+        <div class="bod1 w-100" id="main">
+            <h2>Please Login or Register</h2>
+            <em class="black"></em>
+            <div class="container-fluid m-0">
+                {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
                         <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
@@ -51,84 +27,103 @@
                 </ul>
                 {% endif %}
             </div>
-            <form action='/create' method='POST' class="form-group">
-                {% csrf_token %}
-                <div class="row g-3 align-items-center">
-                    <!-- First Name Input Field -->
-                    <div class="col-sm-2 text-left">
-                        <label class="col-form-label" for="new_first_name">First Name:</label>
+            <em class="partial"></em>
+            <div class="register">
+                <h2>Register</h2>
+                <form action='/register' method='POST' class="form-group g-0">
+                    {% csrf_token %}
+                    <div class="row row-cols-2">
+                        <!-- First Name Input Field -->
+                        <div class="row-md-6">
+                            <div class="col text-left">
+                                <label class="row-form-label" for="new_first_name">First Name:</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="new_first_name" placeholder="Ferris" aria-label="user_first_name">
+                            </div>
+                        </div>
+                        <div class="row-md-6">
+                            <!-- Last Name Input Field -->
+                            <div class="col text-left">
+                                <label class="row-form-label" for="new_last_name">Last Name:</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="new_last_name" placeholder="Bueller" aria-label="user_last_name">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="new_first_name" placeholder="Ferris" aria-label="user_first_name">
+                    <br>
+                    <div class="row-md-12">
+                        <div class="row row-cols-1">
+                            <!-- Email Input Field -->
+                            <div class="col px-3 text-left">
+                                <label class="row-form-label" for="email">Email Address:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="email" name="new_email" placeholder="fbgm@jarvisprotocol.one" aria-label="user_email">
+                            </div>
+                        </div>
                     </div>
-                    <!-- Last Name Input Field -->
-                    <div class="col-sm-2 text-left">
-                        <label class="col-form-label" for="new_last_name">Last Name:</label>
+                    <br>
+                    <div class="row row-cols-2">
+                        <!-- Password Input Field -->
+                        <div class="row-md-6">
+                            <div class="col text-left">
+                                <label class="row-form-label" for="password">Password:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="new_password" placeholder="***********" aria-label="user_password">
+                            </div>
+                        </div>
+                        <div class="row-md-6">
+                            <!-- Confirm Password Input Field -->
+                            <div class="col text-left">
+                                <label class="row-form-label" for="conf_password">Confirm Password:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="conf_password" placeholder="***********" form- aria-label="conf_password">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="new_last_name" placeholder="Bueller" aria-label="user_last_name">
+                    <br>
+                    <div class="row text-center">
+                        <!-- Register Button -->
+                        <input class="btn btn-light btn-lg btn-block active" type="submit" id="button1" value="Create Account" aria-label="create_user">
                     </div>
-                </div>
-                <br>
-                <div class="row g-2 align-items-center">
-                    <!-- Email Input Field -->
-                    <div class="col-sm-2 text-left">
-                        <label class="col-form-label" for="email">Email Address:</label>
+                </form>
+            </div>
+            <em class="w-75"></em>
+            <div class="login">
+                <h2>Login</h2>
+                <form action='/login' method="POST" class="form-group">
+                    {% csrf_token %}
+                    <div class="row row-cols-2 g-0">
+                        <!-- Title Input Field -->
+                        <div class="row-md-6">
+                            <div class="col text-left">
+                                <label class="row-form-label" for="first_name">Email:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="email" name="email" placeholder="*****@jarvisprotocol.one" aria-label="user_email">
+                            </div> 
+                        </div>
+                        <div class="row-md-6">
+                            <!-- Password Input Field -->
+                            <div class="col text-left">
+                                <label class="row-form-label" for="password">Password:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="password" placeholder="***********" form- aria-label="user_password">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="email" name="new_email" placeholder="fbgm@jarvisprotocol.one" aria-label="user_email">
+                    <br>
+                    <div class="row p-0 text-center">
+                        <!-- Register Button -->
+                        <input class="btn btn-light btn-lg btn-block active" type="submit" id="button2" value="Log In" aria-label="login">
                     </div>
-                </div>
-                <br>
-                <div class="row g-2 align-items-center">
-                    <!-- Password Input Field -->
-                    <div class="col-sm-2 text-left">
-                        <label class="col-form-label" for="password">Password:</label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input class="form-control" type="password" name="new_password" placeholder="***********" aria-label="user_password">
-                    </div>
-                    <!-- Confirm Password Input Field -->
-                    <div class="col-sm-2 text-left">
-                        <label class="col-form-label" for="password">Confirm Password:</label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input class="form-control" type="password" name="conf_password" placeholder="***********" form- aria-label="conf_password">
-                    </div>
-                </div>
-                <br>
-                <div class="text-center">
-                    <!-- Submit Button -->
-                    <input class="btn btn-light btn-lg btn-block active" type="submit" id="button1" value="Become Dope." aria-label="create_user">
-                </div>
-            </form>
-        </div>
-        <div class="login">
-            <em id="em3"></em>
-            <h2>Already dope?</h2>
-            <form action='/login' method="POST">
-                {% csrf_token %}
-                <div class="row no-gutters justify-content-center align-items-center">
-                    <!-- Title Input Field -->
-                    <div class="col-1 text-left">
-                        <label class="col-form-label" for="first_name">Email:</label>
-                    </div>
-                    <div class="col-5">
-                        <input class="form-control" type="email" name="email" placeholder="******@jarvisprotocol.one" aria-label="user_email">
-                    </div>
-                    <!-- Password Input Field -->
-                    <div class="col-2 text-center">
-                        <label class="col-form-label" for="password">Password:</label>
-                    </div>
-                    <div class="col-4">
-                        <input class="form-control" type="password" name="password" placeholder="***********" form- aria-label="user_password">
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <input class="btn btn-light btn-lg btn-block active" type="submit" id="button2" value="Prove It." aria-label="login">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
