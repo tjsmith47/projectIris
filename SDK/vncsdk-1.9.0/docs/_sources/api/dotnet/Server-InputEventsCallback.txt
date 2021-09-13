@@ -1,0 +1,90 @@
+.. _Server.InputEventsCallback:
+
+.. default-domain:: csharp
+.. namespace:: RealVNC.VncSdk
+
+Server.InputEventsCallback
+--------------------------
+
+.. class:: Server.InputEventsCallback
+
+    Callback for handling input events.
+
+    For more information, see :cpp:func:`vnc_Server_InputEventsCallback`\  in the C API documentation.
+
+
+Nested classes
+~~~~~~~~~~~~~~
+
+- :ref:`Server.InputEventsCallback.PointerEventCallbackType`
+- :ref:`Server.InputEventsCallback.KeyEventCallbackType`
+
+**Constructor summary**
+
+================= ==========================================================================================================================================================
+Modifier and Type Method and Description                                                                                                                                    
+================= ==========================================================================================================================================================
+\                 :meth:`Server.InputEventsCallback`\ (:attr:`Server.InputEventsCallback.PointerEventCallbackType`, :attr:`Server.InputEventsCallback.KeyEventCallbackType`)
+                                                                                                                                                                            
+                  Initializes a new InputEventsCallback class instance.                                                                                                     
+================= ==========================================================================================================================================================
+
+
+**Method summary**
+
+====================== =====================================================================================================================================================================
+Modifier and Type      Method and Description                                                                                                                                               
+====================== =====================================================================================================================================================================
+:type:`System.Boolean` :meth:`Server.InputEventsCallback.OnPointerEventCallback`\ (:type:`Server`, :type:`System.Int32`, :type:`System.Int32`, :type:`System.Int32`, :type:`System.Boolean`)
+                                                                                                                                                                                            
+                       Handles the PointerEventCallback event.                                                                                                                              
+                       By default, calls the :attr:`Server.InputEventsCallback.PointerEventCallback`\  delegate.                                                                            
+---------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:type:`System.Boolean` :meth:`Server.InputEventsCallback.OnKeyEventCallback`\ (:type:`Server`, :type:`System.Int32`, :type:`System.Boolean`)                                                
+                                                                                                                                                                                            
+                       Handles the KeyEventCallback event.                                                                                                                                  
+                       By default, calls the :attr:`Server.InputEventsCallback.KeyEventCallback`\  delegate.                                                                                
+====================== =====================================================================================================================================================================
+
+
+Constructors
+~~~~~~~~~~~~
+
+.. method:: Server.InputEventsCallback(Server.InputEventsCallback.PointerEventCallbackType a, Server.InputEventsCallback.KeyEventCallbackType b)
+
+    Initializes a new InputEventsCallback class instance.
+
+    For more information, see :cpp:func:`vnc_Server_InputEventsCallback`\  in the C API documentation.
+
+Methods
+~~~~~~~
+
+.. method:: System.Boolean Server.InputEventsCallback.OnPointerEventCallback(Server a, System.Int32 b, System.Int32 c, System.Int32 d, System.Boolean e)
+
+    Handles the PointerEventCallback event.
+    By default, calls the :attr:`Server.InputEventsCallback.PointerEventCallback`\  delegate.
+
+    
+
+.. method:: System.Boolean Server.InputEventsCallback.OnKeyEventCallback(Server a, System.Int32 b, System.Boolean c)
+
+    Handles the KeyEventCallback event.
+    By default, calls the :attr:`Server.InputEventsCallback.KeyEventCallback`\  delegate.
+
+    
+
+Fields
+~~~~~~
+
+.. attribute::  Server.InputEventsCallback.PointerEventCallback
+
+    Handle pointer events manually.
+
+    For more information, see :cpp:member:`vnc_Server_InputEventsCallback::pointerEventCallback`\  in the C API documentation.
+
+.. attribute::  Server.InputEventsCallback.KeyEventCallback
+
+    Handle keypress events manually.
+
+    For more information, see :cpp:member:`vnc_Server_InputEventsCallback::keyEventCallback`\  in the C API documentation.
+

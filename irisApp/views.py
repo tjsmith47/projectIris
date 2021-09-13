@@ -1,11 +1,23 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import User, Machine
-import bcrypt
+from dotenv import load_dotenv
+import bcrypt, os, requests
+load_dotenv()
+
+API_KEY = str(os.getenv('API_KEY'))
+API_SECRET = str(os.getenv('API_SECRET'))
 
 #localhost:8000/
 def index(request):
-    return redirect('/landing')
+    return redirect('/viewer')
+
+def viewer(request):
+    context = {
+        'key' : API_KEY,
+        'secret' : API_SECRET,
+    }
+    return render(request, 'viewer.html', context)
 
 #localhost:8000/landing
 def land(request):

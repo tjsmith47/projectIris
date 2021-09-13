@@ -1,0 +1,42 @@
+Server.InputEventsCallback
+==========================
+
+.. java:package:: com.realvnc.vncsdk
+   :noindex:
+
+.. java:type:: public interface InputEventsCallback
+   :outertype: Server
+
+   Callback for handling input events.
+
+Method Summary
+--------------
+==================== ================================================================================================================================================================================================================================================
+Modifier and Type    Method and Description                                                                                                                                                                                                                          
+==================== ================================================================================================================================================================================================================================================
+:java:type:`boolean` :java:meth:`keyEventCallback <InputEventsCallback.keyEventCallback(Server, int, boolean)>`\ (:java:type:`Server` server, :java:type:`int` key, :java:type:`boolean` down)                                                                       
+                                                                                                                                                                                                                                                                     
+                     Handle keypress events manually.                                                                                                                                                                                                                
+-------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:java:type:`boolean` :java:meth:`pointerEventCallback <InputEventsCallback.pointerEventCallback(Server, int, int, int, boolean)>`\ (:java:type:`Server` server, :java:type:`int` x, :java:type:`int` y, :java:type:`int` buttonMask, :java:type:`boolean` isRelative)
+                                                                                                                                                                                                                                                                     
+                     Handle pointer events manually.                                                                                                                                                                                                                 
+==================== ================================================================================================================================================================================================================================================
+
+Methods
+-------
+
+.. java:method::  boolean keyEventCallback(Server server, int key, boolean down)
+   :outertype: Server.InputEventsCallback
+
+   Handle keypress events manually.
+
+   For more information, see :cpp:member:`vnc_Server_InputEventsCallback::keyEventCallback`.
+
+.. java:method::  boolean pointerEventCallback(Server server, int x, int y, int buttonMask, boolean isRelative)
+   :outertype: Server.InputEventsCallback
+
+   Handle pointer events manually.
+
+   For more information, see :cpp:member:`vnc_Server_InputEventsCallback::pointerEventCallback`.
+

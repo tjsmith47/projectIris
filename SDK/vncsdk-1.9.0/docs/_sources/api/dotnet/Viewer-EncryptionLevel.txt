@@ -1,0 +1,41 @@
+.. _Viewer.EncryptionLevel:
+
+.. default-domain:: csharp
+.. namespace:: RealVNC.VncSdk
+
+Viewer.EncryptionLevel
+----------------------
+
+.. enum:: Viewer.EncryptionLevel
+
+    Enumeration of encryption levels.
+
+    For more information, see :cpp:class:`vnc_Viewer_EncryptionLevel`\  in the C API documentation.
+
+
+Fields
+~~~~~~
+
+.. attribute::  Viewer.EncryptionLevel.Default
+
+    Use strong encryption.This is the default.
+
+    
+
+.. attribute::  Viewer.EncryptionLevel.Maximum
+
+    Use the strongest available encryption, possibly at the cost of speed.
+
+    
+
+.. attribute::  Viewer.EncryptionLevel.Server
+
+    Respect the server's choice of encryption level. This means the viewer
+    will allow connections to third-party servers, but also represents the
+    weakest security, and may open the user up to man-in-the-middle type
+    attacks. Use with caution.
+    Note: to enable this feature, you will need a Third Party Connectivity
+    Add-on code - contact RealVNC for more information.
+
+    
+

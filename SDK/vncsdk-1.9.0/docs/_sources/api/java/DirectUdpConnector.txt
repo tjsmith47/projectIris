@@ -1,0 +1,57 @@
+DirectUdpConnector
+==================
+
+.. java:package:: com.realvnc.vncsdk
+   :noindex:
+
+.. java:type:: public final class DirectUdpConnector
+
+   Connector used to make outgoing UDP connections
+
+Constructor Summary
+-------------------
+* :java:construct:`DirectUdpConnector <DirectUdpConnector() throws Library.VncException>`\ ()
+
+  Creates a new UDP Connector which is used to make outgoing connections to UDP listeners.
+
+Method Summary
+--------------
+================= =============================================================================================================================================================================================================================
+Modifier and Type Method and Description                                                                                                                                                                                                       
+================= =============================================================================================================================================================================================================================
+:java:type:`void` :java:meth:`connect <DirectUdpConnector.connect(String, int, ConnectionHandler) throws Library.VncException>`\ (:java:type:`String` hostOrIpAddress, :java:type:`int` port, :java:type:`ConnectionHandler` connectionHandler)
+                                                                                                                                                                                                                                               
+                  Begins an outgoing UDP connection to the given hostname or IP address.                                                                                                                                                       
+----------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+:java:type:`void` :java:meth:`destroy <DirectUdpConnector.destroy()>`\ ()                                                                                                                                                                      
+                                                                                                                                                                                                                                               
+                  Destroys the UDP Connector.                                                                                                                                                                                                  
+================= =============================================================================================================================================================================================================================
+
+Constructors
+------------
+
+.. java:constructor:: public DirectUdpConnector() throws Library.VncException
+   :outertype: DirectUdpConnector
+
+   Creates a new UDP Connector which is used to make outgoing connections to UDP listeners.
+
+   For more information, see :cpp:func:`vnc_DirectUdpConnector_create`.
+
+Methods
+-------
+
+.. java:method:: public void connect(String hostOrIpAddress, int port, ConnectionHandler connectionHandler) throws Library.VncException
+   :outertype: DirectUdpConnector
+
+   Begins an outgoing UDP connection to the given hostname or IP address.
+
+   For more information, see :cpp:func:`vnc_DirectUdpConnector_connect`.
+
+.. java:method:: public void destroy()
+   :outertype: DirectUdpConnector
+
+   Destroys the UDP Connector.
+
+   For more information, see :cpp:func:`vnc_DirectUdpConnector_destroy`.
+

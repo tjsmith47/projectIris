@@ -1,0 +1,15 @@
+.. _Server.InputEventsCallback.PointerEventCallbackType:
+
+.. default-domain:: csharp
+.. namespace:: RealVNC.VncSdk
+
+Server.InputEventsCallback.PointerEventCallbackType
+---------------------------------------------------
+
+.. attribute:: Server.InputEventsCallback.PointerEventCallbackType
+
+    The type of the :attr:`Server.InputEventsCallback.PointerEventCallback`\  callback.
+
+    
+
+

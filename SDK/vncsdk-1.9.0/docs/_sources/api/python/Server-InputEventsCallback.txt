@@ -1,0 +1,57 @@
+Server.InputEventsCallback
+==========================
+
+.. py:attribute:: vncsdk.Server.InputEventsCallback
+
+    Callback for handling input events.
+
+Method Summary
+--------------
+================= ===============================================================================================================================
+Modifier and Type Method and Description                                                                                                         
+================= ===============================================================================================================================
+bool              :py:func:`key_event_callback <Server.InputEventsCallback.key_event_callback>`\ (server, key, down)                             
+                                                                                                                                                 
+                  Handle keypress events manually.                                                                                               
+----------------- -------------------------------------------------------------------------------------------------------------------------------
+bool              :py:func:`pointer_event_callback <Server.InputEventsCallback.pointer_event_callback>`\ (server, x, y, button_mask, is_relative)
+                                                                                                                                                 
+                  Handle pointer events manually.                                                                                                
+================= ===============================================================================================================================
+
+
+Methods
+-------
+
+.. py:function:: Server.InputEventsCallback.key_event_callback(server, key, down)
+
+    Handle keypress events manually.
+
+    For more information, see :cpp:member:`vnc_Server_InputEventsCallback::keyEventCallback`.
+
+    :param server:
+    :type server: :py:class:`vncsdk.Server`
+    :param key:
+    :type key: int
+    :param down:
+    :type down: bool
+    :rtype: bool
+
+.. py:function:: Server.InputEventsCallback.pointer_event_callback(server, x, y, button_mask, is_relative)
+
+    Handle pointer events manually.
+
+    For more information, see :cpp:member:`vnc_Server_InputEventsCallback::pointerEventCallback`.
+
+    :param server:
+    :type server: :py:class:`vncsdk.Server`
+    :param x:
+    :type x: int
+    :param y:
+    :type y: int
+    :param button_mask:
+    :type button_mask: int
+    :param is_relative:
+    :type is_relative: bool
+    :rtype: bool
+

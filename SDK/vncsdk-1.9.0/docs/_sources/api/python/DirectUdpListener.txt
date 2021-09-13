@@ -1,0 +1,64 @@
+DirectUdpListener
+=================
+
+.. py:class:: vncsdk.DirectUdpListener
+
+    Listener used to receive incoming UDP connections
+
+Nested Classes
+--------------
+
+* :py:class:`vncsdk.DirectUdpListener.Callback`
+
+
+Constructor Summary
+-------------------
+================= ===============================================================================
+Modifier and Type Method and Description                                                         
+================= ===============================================================================
+\                 `__init__ <#constructor>`_\ (port, address_list, connection_handler, callback) 
+                                                                                                 
+                  Begin listening for incoming UDP connections on the given port (IPv4 and IPv6).
+================= ===============================================================================
+
+
+Method Summary
+--------------
+================= ==================================================
+Modifier and Type Method and Description                            
+================= ==================================================
+\                 :py:func:`destroy <DirectUdpListener.destroy>`\ ()
+                                                                    
+                  Destroys the UDP listener.                        
+================= ==================================================
+
+
+Constructor
+-----------
+
+.. py:method:: vncsdk.DirectUdpListener.__init__(port, address_list, connection_handler, callback)
+
+    Begin listening for incoming UDP connections on the given port (IPv4 and
+    IPv6).
+
+    For more information, see :cpp:func:`vnc_DirectUdpListener_create`.
+
+    :param port:
+    :type port: int
+    :param address_list:
+    :type address_list: str or None
+    :param connection_handler:
+    :type connection_handler: :py:class:`vncsdk.ConnectionHandler`
+    :param callback:
+    :type callback: :py:class:`vncsdk.DirectUdpListener.Callback` or None
+
+Methods
+-------
+
+.. py:method:: DirectUdpListener.destroy()
+
+    Destroys the UDP listener.
+
+    For more information, see :cpp:func:`vnc_DirectUdpListener_destroy`.
+
+

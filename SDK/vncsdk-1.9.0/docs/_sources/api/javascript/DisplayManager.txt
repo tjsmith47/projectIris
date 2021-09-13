@@ -1,0 +1,214 @@
+DisplayManager
+==============
+
+.. js:data:: vncsdk.DisplayManager
+
+    Manages the list of displays made available by a Server.
+
+Nested Classes
+--------------
+
+* :js:attr:`vncsdk.DisplayManager.Callback`
+
+Method Summary
+--------------
+================= ====================================================================================================================
+Modifier and Type Method and Description                                                                                              
+================= ====================================================================================================================
+\                 :js:func:`enable <DisplayManager.enable>`\ (enable)                                                                 
+                                                                                                                                      
+                  Specifies whether screen sharing is enabled.                                                                        
+----------------- --------------------------------------------------------------------------------------------------------------------
+number            :js:func:`getDisplayCount <DisplayManager.getDisplayCount>`\ ()                                                     
+                                                                                                                                      
+                  Returns the number of displays.                                                                                     
+----------------- --------------------------------------------------------------------------------------------------------------------
+number            :js:func:`getDisplayIndex <DisplayManager.getDisplayIndex>`\ ()                                                     
+                                                                                                                                      
+                  Gets the index of the currently selected display.                                                                   
+----------------- --------------------------------------------------------------------------------------------------------------------
+string            :js:func:`getId <DisplayManager.getId>`\ (index)                                                                    
+                                                                                                                                      
+                  Gets the ID of the display (typically a short string).                                                              
+----------------- --------------------------------------------------------------------------------------------------------------------
+string            :js:func:`getName <DisplayManager.getName>`\ (index)                                                                
+                                                                                                                                      
+                  Gets the name of the display (typically a human-readable string).                                                   
+----------------- --------------------------------------------------------------------------------------------------------------------
+number            :js:func:`getOriginX <DisplayManager.getOriginX>`\ (index)                                                          
+                                                                                                                                      
+                  Gets the horizontal origin of the display in pixels.                                                                
+----------------- --------------------------------------------------------------------------------------------------------------------
+number            :js:func:`getOriginY <DisplayManager.getOriginY>`\ (index)                                                          
+                                                                                                                                      
+                  Gets the vertical origin of the display in pixels.                                                                  
+----------------- --------------------------------------------------------------------------------------------------------------------
+number            :js:func:`getResolutionX <DisplayManager.getResolutionX>`\ (index)                                                  
+                                                                                                                                      
+                  Gets the horizontal resolution of the display in pixels.                                                            
+----------------- --------------------------------------------------------------------------------------------------------------------
+number            :js:func:`getResolutionY <DisplayManager.getResolutionY>`\ (index)                                                  
+                                                                                                                                      
+                  Gets the vertical resolution of the display in pixels.                                                              
+----------------- --------------------------------------------------------------------------------------------------------------------
+boolean           :js:func:`isEnabled <DisplayManager.isEnabled>`\ ()                                                                 
+                                                                                                                                      
+                  Returns whether the server is sharing its screens, whether it is being called from a server or a viewer.            
+----------------- --------------------------------------------------------------------------------------------------------------------
+boolean           :js:func:`isPrimary <DisplayManager.isPrimary>`\ (index)                                                            
+                                                                                                                                      
+                  Returns whether this is the primary (or main) display.                                                              
+----------------- --------------------------------------------------------------------------------------------------------------------
+boolean           :js:func:`isSelectDisplayAllowed <DisplayManager.isSelectDisplayAllowed>`\ ()                                       
+                                                                                                                                      
+                  Returns whether the selectDisplay() call is permitted.                                                              
+----------------- --------------------------------------------------------------------------------------------------------------------
+\                 :js:func:`selectDisplay <DisplayManager.selectDisplay>`\ (index)                                                    
+                                                                                                                                      
+                  Chooses a particular display to remote to connected Viewer app users.                                               
+----------------- --------------------------------------------------------------------------------------------------------------------
+\                 :js:func:`setCallback <DisplayManager.setCallback>`\ (callback)                                                     
+                                                                                                                                      
+                  Registers a callback notifying when displays are added or removed, or the resolution of an existing display changes.
+================= ====================================================================================================================
+
+
+Methods
+-------
+
+.. js:function:: DisplayManager.enable(enable)
+
+    Specifies whether screen sharing is enabled.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_enable`.
+
+    :param enable:
+    :type enable: boolean
+    :throws: :js:data:`vncsdk.VncException` on error
+
+.. js:function:: DisplayManager.getDisplayCount()
+
+    Returns the number of displays.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getDisplayCount`.
+
+    :rtype: number
+
+.. js:function:: DisplayManager.getDisplayIndex()
+
+    Gets the index of the currently selected display.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getDisplayIndex`.
+
+    :rtype: number
+
+.. js:function:: DisplayManager.getId(index)
+
+    Gets the ID of the display (typically a short string).
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getId`.
+
+    :param index:
+    :type index: number
+    :throws: :js:data:`vncsdk.VncException` on error
+    :rtype: string
+
+.. js:function:: DisplayManager.getName(index)
+
+    Gets the name of the display (typically a human-readable string).
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getName`.
+
+    :param index:
+    :type index: number
+    :throws: :js:data:`vncsdk.VncException` on error
+    :rtype: string
+
+.. js:function:: DisplayManager.getOriginX(index)
+
+    Gets the horizontal origin of the display in pixels.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getOriginX`.
+
+    :param index:
+    :type index: number
+    :rtype: number
+
+.. js:function:: DisplayManager.getOriginY(index)
+
+    Gets the vertical origin of the display in pixels.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getOriginY`.
+
+    :param index:
+    :type index: number
+    :rtype: number
+
+.. js:function:: DisplayManager.getResolutionX(index)
+
+    Gets the horizontal resolution of the display in pixels.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getResolutionX`.
+
+    :param index:
+    :type index: number
+    :rtype: number
+
+.. js:function:: DisplayManager.getResolutionY(index)
+
+    Gets the vertical resolution of the display in pixels.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_getResolutionY`.
+
+    :param index:
+    :type index: number
+    :rtype: number
+
+.. js:function:: DisplayManager.isEnabled()
+
+    Returns whether the server is sharing its screens, whether it is being 
+    called from a server or a viewer.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_isEnabled`.
+
+    :rtype: boolean
+
+.. js:function:: DisplayManager.isPrimary(index)
+
+    Returns whether this is the primary (or main) display.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_isPrimary`.
+
+    :param index:
+    :type index: number
+    :rtype: boolean
+
+.. js:function:: DisplayManager.isSelectDisplayAllowed()
+
+    Returns whether the selectDisplay() call is permitted.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_isSelectDisplayAllowed`.
+
+    :rtype: boolean
+
+.. js:function:: DisplayManager.selectDisplay(index)
+
+    Chooses a particular display to remote to connected Viewer app users.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_selectDisplay`.
+
+    :param index:
+    :type index: number
+    :throws: :js:data:`vncsdk.VncException` on error
+
+.. js:function:: DisplayManager.setCallback(callback)
+
+    Registers a callback notifying when displays are added or removed, or the 
+    resolution of an existing display changes.
+
+    For more information, see :cpp:func:`vnc_DisplayManager_setCallback`.
+
+    :param callback:
+    :type callback: :js:attr:`vncsdk.DisplayManager.Callback` or null
+    :throws: :js:data:`vncsdk.VncException` on error
+

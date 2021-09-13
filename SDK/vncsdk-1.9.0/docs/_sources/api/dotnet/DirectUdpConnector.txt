@@ -1,0 +1,67 @@
+.. _DirectUdpConnector:
+
+.. default-domain:: csharp
+.. namespace:: RealVNC.VncSdk
+
+DirectUdpConnector
+------------------
+
+.. class:: DirectUdpConnector
+
+    Connector used to make outgoing UDP connections
+
+    For more information, see :cpp:class:`vnc_DirectUdpConnector`\  in the C API documentation.
+
+
+**Constructor summary**
+
+================= ======================================================================
+Modifier and Type Method and Description                                                
+================= ======================================================================
+\                 :meth:`DirectUdpConnector`\ ()                                        
+                                                                                        
+                  Creates a new UDP Connector which is used to make outgoing connections
+                  to UDP listeners.                                                     
+================= ======================================================================
+
+
+**Method summary**
+
+================= ============================================================================================================
+Modifier and Type Method and Description                                                                                      
+================= ============================================================================================================
+:type:`void`      :meth:`DirectUdpConnector.Dispose`\ ()                                                                      
+                                                                                                                              
+                  Destroys the UDP Connector.                                                                                 
+----------------- ------------------------------------------------------------------------------------------------------------
+:type:`void`      :meth:`DirectUdpConnector.Connect`\ (:type:`System.String`, :type:`System.Int32`, :type:`ConnectionHandler`)
+                                                                                                                              
+                  Begins an outgoing UDP connection to the given hostname or IP address.                                      
+================= ============================================================================================================
+
+
+Constructors
+~~~~~~~~~~~~
+
+.. method:: DirectUdpConnector()
+
+    Creates a new UDP Connector which is used to make outgoing connections
+    to UDP listeners.
+
+    For more information, see :cpp:func:`vnc_DirectUdpConnector_create`\  in the C API documentation.
+
+Methods
+~~~~~~~
+
+.. method:: void DirectUdpConnector.Dispose()
+
+    Destroys the UDP Connector.
+
+    For more information, see :cpp:func:`vnc_DirectUdpConnector_destroy`\  in the C API documentation.
+
+.. method:: void DirectUdpConnector.Connect(System.String a, System.Int32 b, ConnectionHandler c)
+
+    Begins an outgoing UDP connection to the given hostname or IP address.
+
+    For more information, see :cpp:func:`vnc_DirectUdpConnector_connect`\  in the C API documentation.
+

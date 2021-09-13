@@ -6,6 +6,8 @@ urlpatterns = [
     path('', views.index),
     #localhost:8000/landing
     path('landing', views.land),
+    #localhost:8000/landing
+    path('viewer', views.viewer),
     #localhost:8000/login
     path('login', views.login),
     #localhost:8000/register

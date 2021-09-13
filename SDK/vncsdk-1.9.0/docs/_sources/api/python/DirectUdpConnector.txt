@@ -1,0 +1,67 @@
+DirectUdpConnector
+==================
+
+.. py:class:: vncsdk.DirectUdpConnector
+
+    Connector used to make outgoing UDP connections
+
+Constructor Summary
+-------------------
+================= ========================================================================================
+Modifier and Type Method and Description                                                                  
+================= ========================================================================================
+\                 `__init__ <#constructor>`_\ ()                                                          
+                                                                                                          
+                  Creates a new UDP Connector which is used to make outgoing connections to UDP listeners.
+================= ========================================================================================
+
+
+Method Summary
+--------------
+================= ===============================================================================================
+Modifier and Type Method and Description                                                                         
+================= ===============================================================================================
+\                 :py:func:`connect <DirectUdpConnector.connect>`\ (host_or_ip_address, port, connection_handler)
+                                                                                                                 
+                  Begins an outgoing UDP connection to the given hostname or IP address.                         
+----------------- -----------------------------------------------------------------------------------------------
+\                 :py:func:`destroy <DirectUdpConnector.destroy>`\ ()                                            
+                                                                                                                 
+                  Destroys the UDP Connector.                                                                    
+================= ===============================================================================================
+
+
+Constructor
+-----------
+
+.. py:method:: vncsdk.DirectUdpConnector.__init__()
+
+    Creates a new UDP Connector which is used to make outgoing connections
+    to UDP listeners.
+
+    For more information, see :cpp:func:`vnc_DirectUdpConnector_create`.
+
+
+Methods
+-------
+
+.. py:method:: DirectUdpConnector.connect(host_or_ip_address, port, connection_handler)
+
+    Begins an outgoing UDP connection to the given hostname or IP address.
+
+    For more information, see :cpp:func:`vnc_DirectUdpConnector_connect`.
+
+    :param host_or_ip_address:
+    :type host_or_ip_address: str
+    :param port:
+    :type port: int
+    :param connection_handler:
+    :type connection_handler: :py:class:`vncsdk.ConnectionHandler`
+
+.. py:method:: DirectUdpConnector.destroy()
+
+    Destroys the UDP Connector.
+
+    For more information, see :cpp:func:`vnc_DirectUdpConnector_destroy`.
+
+

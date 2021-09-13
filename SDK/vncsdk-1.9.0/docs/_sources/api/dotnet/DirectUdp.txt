@@ -1,0 +1,24 @@
+.. _DirectUdp:
+
+.. default-domain:: csharp
+.. namespace:: RealVNC.VncSdk
+
+DirectUdp
+---------
+
+.. class:: DirectUdp
+
+    A container for static methods.
+
+    For more information, see :cpp:class:`vnc_DirectUdp`\  in the C API documentation.
+
+
+Fields
+~~~~~~
+
+.. attribute::  DirectUdp.DefaultPort
+
+    The default port for VNC direct UDP connections.
+
+    For more information, see :cpp:member:`VNC_DIRECT_UDP_DEFAULT_PORT`\  in the C API documentation.
+
