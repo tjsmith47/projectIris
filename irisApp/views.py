@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import User, Machine
 from dotenv import load_dotenv
-import bcrypt, os, requests
+import bcrypt, os, datetime, requests
 load_dotenv()
 
 API_KEY = str(os.getenv('API_KEY'))
@@ -25,42 +25,43 @@ def land(request):
     
 #localhost:8000/login
 def login(request):
+    if request.method == 'GET':
+        if 'user_id' not in request.session:
+            return redirect('/')
     errors = User.objects.login_validator(request.POST)
     if len(errors) > 0:
         for value in errors.values():
             messages.error(request, value)
-        return redirect('/landing')
+        return redirect('/home')
     else:
-        logged_user = User.objects.get(email=request.POST['email'])
-        request.session.flush()
-        request.session['user_id']=logged_user.id
-        request.session['first_name']=logged_user.first_name
-        return redirect('/thoughts')
+        logged_user = User.objects.get(email=request.POST['user_email'])
+        request.session['user_id'] = logged_user.id
+        request.session['first_name'] = logged_user.first_name
+        return redirect('/dashboard')
 
 #localhost:8000/register
 def register(request):
-    if request.method == "GET":
-        return redirect('/')
+    if request.method == 'GET':
+        if 'user_id' not in request.session:
+            return redirect('/')
     errors = User.objects.registration_validator(request.POST)
     if len(errors) > 0:
-        print(f'FAILED: {request.POST}')
         for value in errors.values():
             messages.error(request, value)
-        return redirect('/landing')
+        return redirect('/home')
     else:
         password = request.POST['new_password']
-        pw_hash = bcrypt.hashpw(password, bcrypt.gensalt())
+        pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
         new_user = User.objects.create(
-            first_name = request.POST['new_first_name'],
-            last_name = request.POST['new_last_name'],
+            first_name = request.POST['first_name'],
+            last_name = request.POST['last_name'],
             email = request.POST['new_email'],
             password = pw_hash,
         )
         print(f'CREATE: {request.POST}')
-        request.session.flush()
         request.session['user_id'] = new_user.id
-        request.session['first_name']=new_user.first_name
-        return redirect('/thoughts')
+        request.session['first_name'] = new_user.first_name
+        return redirect('/dashboard')
 
 #localhost:8000/thoughts
 def dash(request):
@@ -79,22 +80,34 @@ def dash(request):
     }
     return render(request, 'dashboard.html', context)
 
+#localhost:8000/appointments/new
 def new(request):
+    context = {
+        'status' : Machine.objects.all(),
+    }
+    return render(request, 'new.html', context)
+
+#localhost:8000/appointments/create
+def create(request):
+    if request.method == 'GET':
+        if 'user_id' not in request.session:
+            return redirect('/')
     errors = User.objects.post_validator(request.POST)
     # if errors are present:
     if len(errors) > 0:
         for value in errors.values():
             messages.error(request, value)
-        return redirect('/thoughts')
+        return redirect('/devices/new')
     else:
         logged_user = User.objects.get(id=request.session['user_id'])
-        thought = Machine.objects.create(
-            message=request.POST['message'],
-            posted_by=logged_user
+        appt = Machine.objects.create(
+            task=request.POST['task'],
+            date=request.POST['date'],
+            user=logged_user
         )
-        thought.save()
+        appt.save()
         print(f'CREATE: {request.POST}')
-        return redirect('/thoughts')
+        return redirect('/dashboard')
 
 def thoughts(request, thought_id):
     logged_user = User.objects.get(id=request.session['user_id'])
@@ -117,22 +130,42 @@ def thoughts(request, thought_id):
     }
     return render(request, 'thoughts.html', context)
 
-def like(request, thought_id):
-    thought = Machine.objects.get(id=thought_id)
-    logged_user  = User.objects.get(id=request.session['user_id'])
-    liked_by = logged_user.thoughts_liked.all()
-    if thought in liked_by:
-        thought.users_who_like.remove(logged_user)
+#localhost:8000/appointments/1/edit
+def edit(request, appt_id):
+    appt = Machine.objects.get(id=appt_id)
+    status = Machine.objects.all()
+    context = {
+        'appt' : appt,
+        'status' : status,
+    }
+    return render(request, 'edit.html', context)
+
+#localhost:8000/appointments/1/update
+def update(request, appt_id, stat_id):
+    if request.method == 'GET':
+        if 'user_id' not in request.session:
+            return redirect('/')
+    errors = User.objects.post_validator(request.POST)
+    # if errors are present
+    if len(errors) > 0:
+        for value in errors.values():
+            messages.error(request, value)
+        return redirect(f'appointments/{appt_id}/edit')
+    # if errors not present
     else:
-        thought.users_who_like.add(logged_user)
-    logged_user.save()
-    return redirect('/thoughts')
+        status = Machine.objects.filter(id=stat_id)
+        appt = Machine.objects.get(id=appt_id)
+        appt.task = request.POST['task'],
+        appt.date = request.POST['date'],
+        appt.status = status
+        appt.save()
+        return redirect('/dashboard')
 
 #localhost:8000/thoughts/<thought_id>/delete
 def destroy(request, thought_id):
-    delete_thought = Machine.objects.get(id=thought_id)
-    delete_thought.delete()
-    return redirect('/thoughts')
+    delete_device = Machine.objects.get(id=thought_id)
+    delete_device.delete()
+    return redirect('/dashboard')
 
 #localhost:8000/logout
 def logout(request):

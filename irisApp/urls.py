@@ -14,12 +14,14 @@ urlpatterns = [
     path('register', views.register),
     #localhost:8000/thoughts
     path('thoughts', views.dash),
-    #localhost:8000/thoughts
-    path('thoughts/new', views.new),
-    #localhost:8000/thoughts/1
-    path('thoughts/<int:thought_id>', views.thoughts),
-    #localhost:8000/thoughts/1/like
-    path('thoughts/<int:thought_id>/like', views.like),
+    #localhost:8000/appointments/new
+    path('appointments/new', views.new, name='new'), 
+    #localhost:8000/appointments/new
+    path('appointments/create', views.create, name='create'), 
+    #localhost:8000/appointments/1/like
+    path('appointments/<int:appt_id>/edit', views.edit, name='edit'), 
+    #localhost:8000/appointments/1/like
+    path('appointments/<int:appt_id>/<int:stat_id>/update', views.update, name='update'), 
     #localhost:8000/thoughts/1/destroy
     path('thoughts/<int:thought_id>/destroy', views.destroy),
     #localhost:8000/logout

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Edit a Show You Created</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="container-fluid gx-0 mx-0 px-0" id="white">
+    <nav class="navbar fixed-top bg-danger justify-content-between" id="nav2" role="group">
+        <a href="" class="navbar-brand"><h1 class="h1">Hey, {{ request.session.first_name }}!</h1></a> 
+        <div class="btn-group" role="group">
+            <a href="/appointments" class="btn btn-secondary">Dashboard</a>
+            <a href="/logout" class="btn btn-warning">Logout</a> 
+        </div>
+    </nav>
+    <div class="justify-content-center bg-primary">
+        <div class="col bpx-0" id="main">
+            <div class="h-200 w-80 m-0 bg-primary">
+                <div class="container h-100 w-100 align-items-center align-middle" id="nav2">
+                    <div class="col-lg-12 p-3">
+                        <h1 class="text-center">Add a New Appointment!</h1>
+                        <div class="row align-items-center text-lg text-center">
+                            <div class="col-lg-2 text-center">
+                                <div class="container-fluid bg-warning" id="messages">
+                                    {% if messages %}
+                                    <ul class="message">
+                                        {% for message in messages %}
+                                            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <form action='/appointments/create' id="show" method='POST'>
+                                {% csrf_token %}
+                                <!-- Tasl Input Field -->
+                                <div class="row mb-3 align-items-center">
+                                    <div class="col-md-4 text-center">
+                                        <label class="col-form-label" for="colFormLabel"><h4>Task</h4></label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="colFormLabel" name="task"  aria-label="task">
+                                    </div>
+                                </div>
+                                <div class="row mb-3 align-items-center">
+                                    <!-- Date Input Field -->
+                                    <div class="col-md-4 text-center">
+                                        <label class="col-form-label" for="date"><h4>Date</h4></label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="date" name="date" aria-label="date">
+                                    </div>
+                                </div>
+                                <div class="row mb-3 align-items-center">
+                                    <!-- Submit Button -->
+                                    <input class="btn btn-success" type="submit" value="Add" aria-label="submit">
+                                    <a href="/appointments" class="btn btn-danger">Cancel</a> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+{% comment %}                     <option value='2'>Missed</option>
+                    <option value='3'>Done</option> {% endcomment %}

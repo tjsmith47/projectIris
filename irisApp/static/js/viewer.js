@@ -46,17 +46,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     /* For Cloud connections, hard-code the Cloud address for the Viewer, for example:
      * LxygGgSrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRsVnXoDoue4Xqm
      */
-    var localCloudAddress = "";
+    var localCloudAddress = "wxPDA7rtbKfLthRDxav.wxPPXGFckAQ73Eko3vd.devEX1Sg2Txs1CgVuW4.wxPPRLuAJ4WG7Ka4XYa";
 
     /* Hard-code the Cloud password associated with this Cloud address, for example:
      * KMDgGgELSvAdvscgGfk2
      */
-    var localCloudPassword = "";
+    var localCloudPassword = "0FlfneoBQ09rqOY5lvrO";
 
     /* Hard-code the Cloud address of the Server (peer) to connect to, for example:
      * LxyDgGgrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRydf9ZczNo13BcD
      */
-    var peerCloudAddress = "";
+    var peerCloudAddress = "wxPDA7rtbKfLthRDxav.wxPPXGFckAQ73Eko3vd.devEX1Sg2Txs1CgVuW4.wxPPRtBPTRE5SGXR8AP";
 
     /* The application instance. */
     window.App = {};

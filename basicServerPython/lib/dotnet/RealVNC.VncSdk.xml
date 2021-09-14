@@ -1,0 +1,3250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RealVNC.VncSdk</name>
+    </assembly>
+    <members>
+        <member name="T:RealVNC.VncSdk.AnnotationManager">
+            <summary>
+            Enables a Viewer or Server to annotate a Server device screen.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.AnnotationManager.Callback">
+            <summary>
+            Callback receiving annotation-related notifications
+            
+            <see cref="M:RealVNC.VncSdk.AnnotationManager.SetCallback"/>
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.AnnotationManager.Callback.AvailabilityChanged">
+            <summary>
+            Notification that annotation availability has changed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_Callback::availabilityChanged</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.Callback.#ctor(RealVNC.VncSdk.AnnotationManager.Callback.AvailabilityChangedType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.Callback.OnAvailabilityChanged(RealVNC.VncSdk.AnnotationManager,System.Boolean)">
+            <summary>
+            Handles the AvailabilityChanged event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.AnnotationManager.Callback.AvailabilityChanged"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.AnnotationManager.Callback.AvailabilityChangedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.AnnotationManager.Callback.AvailabilityChanged"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.SetCallback(RealVNC.VncSdk.AnnotationManager.Callback)">
+            <summary>
+            Sets annotation-related callbacks.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_setCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.Clear(System.Boolean,RealVNC.VncSdk.Connection)">
+            <summary>
+            Clears particular annotations.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_clear</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.ClearAll(System.Boolean)">
+            <summary>
+            Clears all annotations.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_clearAll</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.IsAvailable">
+            <summary>
+            Queries whether it is possible to annotate.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_isAvailable</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.GetPenColor">
+            <summary>
+            Gets the current pen color.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_getPenColor</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.SetPenColor(System.Int32)">
+            <summary>
+            Sets the pen color, determining the color of the annotation line.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_setPenColor</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.GetPenSize">
+            <summary>
+            Gets the current pen size.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_getPenSize</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.SetPenSize(System.Int32)">
+            <summary>
+            Sets the pen size, determining the width of the annotation line.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_setPenSize</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.GetPersistDuration">
+            <summary>
+            Gets how long annotations persist as a solid color for.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_getPersistDuration</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.SetPersistDuration(System.Int32)">
+            <summary>
+            Sets how long annotations persist as a solid color for.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_setPersistDuration</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.GetFadeDuration">
+            <summary>
+            Gets how long annotations take to fade.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_getFadeDuration</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.SetFadeDuration(System.Int32)">
+            <summary>
+            Sets how long annotations take to fade.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_setFadeDuration</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.AnnotationManager.MovePenTo(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Draws a line on the Server screen from the current position to a
+            new position.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_AnnotationManager_movePenTo</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudAddressMonitor">
+            <summary>
+            Monitor used to query the availability of VNC Cloud addresses.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudAddressMonitor.Callback">
+            <summary>
+            Callback for a <see cref="T:RealVNC.VncSdk.CloudAddressMonitor"/>.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudAddressMonitor.Callback.AvailabilityChanged">
+            <summary>
+            Notification that the availability information for a Cloud address has
+            changed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_Callback::availabilityChanged</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudAddressMonitor.Callback.MonitorPaused">
+            <summary>
+            Notification that monitoring has been paused by an outgoing connection
+            starting.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_Callback::monitorPaused</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.Callback.#ctor(RealVNC.VncSdk.CloudAddressMonitor.Callback.AvailabilityChangedType,RealVNC.VncSdk.CloudAddressMonitor.Callback.MonitorPausedType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.Callback.OnAvailabilityChanged(RealVNC.VncSdk.CloudAddressMonitor,System.String,RealVNC.VncSdk.CloudAddressMonitor.Availability)">
+            <summary>
+            Handles the AvailabilityChanged event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.CloudAddressMonitor.Callback.AvailabilityChanged"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.Callback.OnMonitorPaused(RealVNC.VncSdk.CloudAddressMonitor)">
+            <summary>
+            Handles the MonitorPaused event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.CloudAddressMonitor.Callback.MonitorPaused"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudAddressMonitor.Callback.AvailabilityChangedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.CloudAddressMonitor.Callback.AvailabilityChanged"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudAddressMonitor.Callback.MonitorPausedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.CloudAddressMonitor.Callback.MonitorPaused"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudAddressMonitor.Availability">
+            <summary>
+            Enumeration of availabilities for a Cloud address.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_Availability</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudAddressMonitor.Availability.Available">
+            <summary>
+            A peer is currently listening on the Cloud address.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudAddressMonitor.Availability.Unavailable">
+            <summary>
+            No peer is currently listening on the Cloud address.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudAddressMonitor.Availability.UnknownAvailability">
+            <summary>
+            The Cloud address monitor is waiting for the Cloud services to return the
+            availability for the peer address, or an error occurred.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.#ctor(RealVNC.VncSdk.CloudConnector,System.String[],RealVNC.VncSdk.CloudAddressMonitor.Callback)">
+            <summary>
+            Creates a monitor, which queries whether a list of cloud addresses is
+            available.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.Dispose">
+            <summary>
+            Destroys the Cloud monitor.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.Pause">
+            <summary>
+            Pauses the Cloud monitor.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_pause</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.Resume">
+            <summary>
+            Resumes the Cloud monitor.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_resume</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudAddressMonitor.SetPauseOnConnect(System.Boolean)">
+            <summary>
+            Sets whether or not the Cloud monitor pauses automatically when a connection
+            is established.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudAddressMonitor_setPauseOnConnect</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudConnector">
+            <summary>
+            Connector used to join VNC Cloud and establish an outgoing connection.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudConnector</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudConnector.#ctor(System.String,System.String)">
+            <summary>
+            Creates a connector, which is used used to create connections to Cloud
+            addresses.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudConnector_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudConnector.Dispose">
+            <summary>
+            Destroys the Cloud connector.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudConnector_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudConnector.Connect(System.String,RealVNC.VncSdk.ConnectionHandler)">
+            <summary>
+            Begins an outgoing connection to the given Cloud address.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudConnector_connect</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudConnector.SetWaitForPeer(System.Boolean)">
+            <summary>
+            Sets whether new connections created by the connector wait for the peer to
+            start listening.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudConnector_setWaitForPeer</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudConnector.SetRelayBandwidthLimit(System.Int32)">
+            <summary>
+            Set the bandwidth limit applied to relayed Cloud connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudConnector_setRelayBandwidthLimit</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudListener">
+            <summary>
+            Listener used to join VNC Cloud and listen for a connection.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudListener.Callback">
+            <summary>
+            Callback for a <see cref="T:RealVNC.VncSdk.CloudListener"/>.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudListener.Callback.ListeningFailed">
+            <summary>
+            Notification that the Cloud listener has stopped listening and is unable
+            to accept any more connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_Callback::listeningFailed</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudListener.Callback.FilterConnection">
+            <summary>
+            Notification to provide address-based filtering of incoming connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_Callback::filterConnection</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudListener.Callback.ListeningStatusChanged">
+            <summary>
+            Notification that the listener status has changed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_Callback::listeningStatusChanged</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudListener.Callback.#ctor(RealVNC.VncSdk.CloudListener.Callback.ListeningFailedType,RealVNC.VncSdk.CloudListener.Callback.FilterConnectionType,RealVNC.VncSdk.CloudListener.Callback.ListeningStatusChangedType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudListener.Callback.OnListeningFailed(RealVNC.VncSdk.CloudListener,System.String,System.Int32)">
+            <summary>
+            Handles the ListeningFailed event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.CloudListener.Callback.ListeningFailed"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudListener.Callback.OnFilterConnection(RealVNC.VncSdk.CloudListener,System.String)">
+            <summary>
+            Handles the FilterConnection event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.CloudListener.Callback.FilterConnection"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudListener.Callback.OnListeningStatusChanged(RealVNC.VncSdk.CloudListener,RealVNC.VncSdk.CloudListener.Status)">
+            <summary>
+            Handles the ListeningStatusChanged event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.CloudListener.Callback.ListeningStatusChanged"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudListener.Callback.ListeningFailedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.CloudListener.Callback.ListeningFailed"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudListener.Callback.FilterConnectionType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.CloudListener.Callback.FilterConnection"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudListener.Callback.ListeningStatusChangedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.CloudListener.Callback.ListeningStatusChanged"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.CloudListener.Status">
+            <summary>
+            Enumeration of listening statuses.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_Status</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudListener.Status.Searching">
+            <summary>
+            The listener is in the process of establishing an association with VNC
+            Cloud.  Incoming connections are not yet possible.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.CloudListener.Status.Online">
+            <summary>
+            The listener is available for incoming connections.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudListener.#ctor(System.String,System.String,RealVNC.VncSdk.ConnectionHandler,RealVNC.VncSdk.CloudListener.Callback)">
+            <summary>
+            Begins listening for incoming connections on the given Cloud address.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.CloudListener.Dispose">
+            <summary>
+            Destroys the Cloud listener.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_CloudListener_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Connection">
+            <summary>
+            Opaque type for a connection, identifying a Viewer connected to a Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Connection</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Connection.Equals(RealVNC.VncSdk.Connection)">
+            <summary>
+            Performs equality comparison against another Connection.
+            </summary>
+            <returns>
+            Returns a boolean indicating whether this Connection
+            compares equal to the other Connection.
+            </returns>
+        </member>
+        <member name="M:RealVNC.VncSdk.Connection.Equals(System.Object)">
+            <summary>
+            Performs equality comparison against another object.
+            </summary>
+            <returns>
+            Returns a boolean indicating whether this Connection
+            compares equal to the other object.
+            </returns>
+        </member>
+        <member name="M:RealVNC.VncSdk.Connection.op_Equality(RealVNC.VncSdk.Connection,RealVNC.VncSdk.Connection)">
+            <summary>Equality comparison operator.</summary>
+            <returns>
+            Returns a boolean indicating whether this Connection
+            compares equal to the other Connection.
+            </returns>
+        </member>
+        <member name="M:RealVNC.VncSdk.Connection.op_Inequality(RealVNC.VncSdk.Connection,RealVNC.VncSdk.Connection)">
+            <summary>Inequality comparison operator.</summary>
+            <returns>
+            Returns a boolean indicating whether this Connection
+            compares unequal to the other Connection.
+            </returns>
+        </member>
+        <member name="M:RealVNC.VncSdk.Connection.GetHashCode">
+            <summary>
+            Returns the hash code for this Connection.
+            </summary>
+            <returns>
+            A 32-bit signed integer hash code.
+            </returns>
+        </member>
+        <member name="T:RealVNC.VncSdk.ConnectionHandler">
+            <summary>
+            Opaque type for a connection handler, enabling a Viewer or Server to perform
+            a connection operation.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_ConnectionHandler</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DataBuffer">
+            <summary>
+            Buffer containing data managed by the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataBuffer</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataBuffer.#ctor(System.Byte[])">
+            <summary>
+            Creates a data buffer containing a copy of the given data.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataBuffer_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataBuffer.Dispose">
+            <summary>
+            Destroys the data buffer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataBuffer_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DataStore">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DataStore.Callback">
+            <summary>
+            Callback providing custom storage of data used by the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.DataStore.Callback.Put">
+            <summary>
+            Requests storing data in your custom data store.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_Callback::put</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.DataStore.Callback.Get">
+            <summary>
+            Requests data stored in your custom data store.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_Callback::get</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataStore.Callback.#ctor(RealVNC.VncSdk.DataStore.Callback.PutType,RealVNC.VncSdk.DataStore.Callback.GetType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataStore.Callback.OnPut(System.String,RealVNC.VncSdk.ImmutableDataBuffer)">
+            <summary>
+            Handles the Put event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.DataStore.Callback.Put"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataStore.Callback.OnGet(System.String)">
+            <summary>
+            Handles the Get event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.DataStore.Callback.Get"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.DataStore.Callback.PutType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.DataStore.Callback.Put"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.DataStore.Callback.GetType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.DataStore.Callback.Get"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataStore.CreateCustomStore(RealVNC.VncSdk.DataStore.Callback)">
+            <summary>
+            Creates a custom data store.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_createCustomStore</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataStore.CreateFileStore(System.String)">
+            <summary>
+            Creates a file data store.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_createFileStore</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataStore.CreateRegistryStore(System.String)">
+            <summary>
+            Creates a registry data store.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_createRegistryStore</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DataStore.DestroyStore">
+            <summary>
+            Destroys the current data store.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataStore_destroyStore</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectTcpConnector">
+            <summary>
+            Connector used to make outgoing TCP connections
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpConnector</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpConnector.#ctor">
+            <summary>
+            Creates a new TCP Connector which is used to make outgoing connections
+            to TCP listeners.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpConnector_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpConnector.SetProxySettings(System.Boolean,System.String)">
+            <summary>
+            Set proxy server settings for this TCP Connector.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpConnector_setProxySettings</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpConnector.Dispose">
+            <summary>
+            Destroys the TCP Connector.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpConnector_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpConnector.Connect(System.String,System.Int32,RealVNC.VncSdk.ConnectionHandler)">
+            <summary>
+            Begins an outgoing TCP connection to the given hostname or IP address.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpConnector_connect</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectTcp">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcp</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.DirectTcp.DefaultPort">
+            <summary>
+            The default port for VNC direct TCP connections.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectTcpListener">
+            <summary>
+            Listener used to receive incoming TCP connections
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpListener</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectTcpListener.Callback">
+            <summary>
+            Callback for filtering incoming TCP connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpListener_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.DirectTcpListener.Callback.FilterConnection">
+            <summary>
+            Notification to provide address-based filtering of incoming connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpListener_Callback::filterConnection</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpListener.Callback.#ctor(RealVNC.VncSdk.DirectTcpListener.Callback.FilterConnectionType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpListener_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpListener.Callback.OnFilterConnection(RealVNC.VncSdk.DirectTcpListener,System.String,System.Int32)">
+            <summary>
+            Handles the FilterConnection event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.DirectTcpListener.Callback.FilterConnection"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectTcpListener.Callback.FilterConnectionType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.DirectTcpListener.Callback.FilterConnection"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpListener.#ctor(System.Int32,System.String,RealVNC.VncSdk.ConnectionHandler,RealVNC.VncSdk.DirectTcpListener.Callback)">
+            <summary>
+            Begin listening for incoming TCP connections on the given port (IPv4 and
+            IPv6).
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpListener_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectTcpListener.Dispose">
+            <summary>
+            Destroys the TCP listener.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectTcpListener_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectUdpConnector">
+            <summary>
+            Connector used to make outgoing UDP connections
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpConnector</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectUdpConnector.#ctor">
+            <summary>
+            Creates a new UDP Connector which is used to make outgoing connections
+            to UDP listeners.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpConnector_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectUdpConnector.Dispose">
+            <summary>
+            Destroys the UDP Connector.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpConnector_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectUdpConnector.Connect(System.String,System.Int32,RealVNC.VncSdk.ConnectionHandler)">
+            <summary>
+            Begins an outgoing UDP connection to the given hostname or IP address.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpConnector_connect</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectUdp">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdp</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.DirectUdp.DefaultPort">
+            <summary>
+            The default port for VNC direct UDP connections.
+            </summary>
+            <remarks>
+            For more information, see <c>VNC_DIRECT_UDP_DEFAULT_PORT</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectUdpListener">
+            <summary>
+            Listener used to receive incoming UDP connections
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpListener</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectUdpListener.Callback">
+            <summary>
+            Callback for filtering incoming UDP connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpListener_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.DirectUdpListener.Callback.FilterConnection">
+            <summary>
+            Notification to provide address-based filtering of incoming connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpListener_Callback::filterConnection</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectUdpListener.Callback.#ctor(RealVNC.VncSdk.DirectUdpListener.Callback.FilterConnectionType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpListener_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectUdpListener.Callback.OnFilterConnection(RealVNC.VncSdk.DirectUdpListener,System.String,System.Int32)">
+            <summary>
+            Handles the FilterConnection event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.DirectUdpListener.Callback.FilterConnection"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.DirectUdpListener.Callback.FilterConnectionType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.DirectUdpListener.Callback.FilterConnection"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectUdpListener.#ctor(System.Int32,System.String,RealVNC.VncSdk.ConnectionHandler,RealVNC.VncSdk.DirectUdpListener.Callback)">
+            <summary>
+            Begin listening for incoming UDP connections on the given port (IPv4 and
+            IPv6).
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpListener_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DirectUdpListener.Dispose">
+            <summary>
+            Destroys the UDP listener.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DirectUdpListener_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DisplayManager">
+            <summary>
+            Manages the list of displays made available by a Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DisplayManager.Callback">
+            <summary>
+            Callback receiving display changes.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.DisplayManager.Callback.DisplaysChanged">
+            <summary>
+            Notification that a display has been added or removed, or the resolution 
+            of an existing display has changed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_Callback::displaysChanged</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.Callback.#ctor(RealVNC.VncSdk.DisplayManager.Callback.DisplaysChangedType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.Callback.OnDisplaysChanged(RealVNC.VncSdk.DisplayManager)">
+            <summary>
+            Handles the DisplaysChanged event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.DisplayManager.Callback.DisplaysChanged"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.DisplayManager.Callback.DisplaysChangedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.DisplayManager.Callback.DisplaysChanged"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetDisplayCount">
+            <summary>
+            Returns the number of displays.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getDisplayCount</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.SetCallback(RealVNC.VncSdk.DisplayManager.Callback)">
+            <summary>
+            Registers a callback notifying when displays are added or removed, or the 
+            resolution of an existing display changes.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_setCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.SelectDisplay(System.Int32)">
+            <summary>
+            Chooses a particular display to remote to connected Viewer app users.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_selectDisplay</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetDisplayIndex">
+            <summary>
+            Gets the index of the currently selected display.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getDisplayIndex</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetId(System.Int32)">
+            <summary>
+            Gets the ID of the display (typically a short string).
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getId</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetName(System.Int32)">
+            <summary>
+            Gets the name of the display (typically a human-readable string).
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getName</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.IsPrimary(System.Int32)">
+            <summary>
+            Returns whether this is the primary (or main) display.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_isPrimary</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetResolutionX(System.Int32)">
+            <summary>
+            Gets the horizontal resolution of the display in pixels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getResolutionX</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetResolutionY(System.Int32)">
+            <summary>
+            Gets the vertical resolution of the display in pixels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getResolutionY</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetOriginX(System.Int32)">
+            <summary>
+            Gets the horizontal origin of the display in pixels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getOriginX</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.GetOriginY(System.Int32)">
+            <summary>
+            Gets the vertical origin of the display in pixels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_getOriginY</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.IsSelectDisplayAllowed">
+            <summary>
+            Returns whether the selectDisplay() call is permitted.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_isSelectDisplayAllowed</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.Enable(System.Boolean)">
+            <summary>
+            Specifies whether screen sharing is enabled.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_enable</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.DisplayManager.IsEnabled">
+            <summary>
+            Returns whether the server is sharing its screens, whether it is being 
+            called from a server or a viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DisplayManager_isEnabled</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.DynamicLoader">
+            <summary>
+            Provides run-time loading of dynamic libraries.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.DynamicLoader.Exception">
+            <summary>
+            Abstract base class of exceptions thrown by the DynamicLoader.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.DynamicLoader.LoadLibrary(System.String[])">
+            <summary>
+            <para>
+            Loads the VNC SDK dynamic library file by searching in
+            the specified directories in order.
+            </para>
+            <para>
+            All directories must be specified with absolute paths,
+            i.e. they must include a root directory.
+            </para>
+            </summary>
+            <returns>
+            Returns the path of the loaded dynamic library file,
+            or throws an Exception.
+            </returns>
+        </member>
+        <member name="M:RealVNC.VncSdk.DynamicLoader.GetPlatformSubdirectory(System.String)">
+            <summary>
+            Returns a platform-specific subdirectory of the specified
+            directory, following the layout of the "lib" directory of
+            the VNC SDK.
+            </summary>
+            <returns>
+            A subdirectory of the specified directory.
+            </returns>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoop">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoop</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoop.Run">
+            <summary>
+            Runs the event loop until EventLoop.stop() is called.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoop_run</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoop.Stop">
+            <summary>
+            Stops the event loop previously started with EventLoop.run(), causing
+            EventLoop.run() to return promptly.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoop_stop</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoop.ShouldStop">
+            <summary>
+            Returns a boolean flag indicating whether the event loop should stop,
+            and immediately clears it.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoop_shouldStop</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoop.RunOnLoop(System.Action)">
+            <summary>
+            Performs an action on the SDK thread, pausing the event loop
+            for the duration of the action.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopFd">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopFd.Callback">
+            <summary>
+            Callback receiving notifications for a file-descriptor-based event loop.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopFd.Callback.EventUpdated">
+            <summary>
+            Notification that a file descriptor's event mask has changed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_Callback::eventUpdated</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopFd.Callback.TimerUpdated">
+            <summary>
+            Notification that the timer expiry period has been updated.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_Callback::timerUpdated</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopFd.Callback.#ctor(RealVNC.VncSdk.EventLoopFd.Callback.EventUpdatedType,RealVNC.VncSdk.EventLoopFd.Callback.TimerUpdatedType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopFd.Callback.OnEventUpdated(System.Int32,RealVNC.VncSdk.EventLoopFd.Event)">
+            <summary>
+            Handles the EventUpdated event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.EventLoopFd.Callback.EventUpdated"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopFd.Callback.OnTimerUpdated(System.Int32)">
+            <summary>
+            Handles the TimerUpdated event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.EventLoopFd.Callback.TimerUpdated"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopFd.Callback.EventUpdatedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.EventLoopFd.Callback.EventUpdated"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopFd.Callback.TimerUpdatedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.EventLoopFd.Callback.TimerUpdated"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopFd.Event">
+            <summary>
+            Enumeration of file descriptor events for event selection.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_Event</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopFd.Event.Zero">
+            <summary>
+            No Event bits set.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopFd.Event.Read">
+            <summary>
+            Monitor using <c>readfds</c> with <c>select</c>() (the second argument), or
+            <c>POLLIN</c> with <c>poll</c>().
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopFd.Event.Write">
+            <summary>
+            Monitor using <c>writefds</c> with <c>select</c>() (the third argument), or
+            <c>POLLOUT</c> with <c>poll</c>().
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopFd.Event.Except">
+            <summary>
+            Monitor using <c>exceptfds</c> with <c>select</c>() (the fourth argument), or
+            <c>POLLPRI</c> with <c>poll</c>().
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopFd.SetCallback(RealVNC.VncSdk.EventLoopFd.Callback)">
+            <summary>
+            Sets the event loop callback.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_setCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopFd.MarkEvents(System.Int32,RealVNC.VncSdk.EventLoopFd.Event)">
+            <summary>
+            Marks event(s) that occurred on the specified file descriptor.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_markEvents</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopFd.HandleEvents">
+            <summary>
+            Handles events on the file descriptors and process expired timers.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopFd_handleEvents</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopWin">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopWin.Callback">
+            <summary>
+            Callback receiving notifications for a Windows HANDLE-based event loop.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopWin.Callback.EventUpdated">
+            <summary>
+            Notification that a Windows event is being added or removed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin_Callback::eventUpdated</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.EventLoopWin.Callback.TimerUpdated">
+            <summary>
+            Notification that the timer expiry period has been updated.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin_Callback::timerUpdated</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopWin.Callback.#ctor(RealVNC.VncSdk.EventLoopWin.Callback.EventUpdatedType,RealVNC.VncSdk.EventLoopWin.Callback.TimerUpdatedType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopWin.Callback.OnEventUpdated(System.Threading.WaitHandle,System.Boolean)">
+            <summary>
+            Handles the EventUpdated event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.EventLoopWin.Callback.EventUpdated"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopWin.Callback.OnTimerUpdated(System.Int32)">
+            <summary>
+            Handles the TimerUpdated event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.EventLoopWin.Callback.TimerUpdated"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopWin.Callback.EventUpdatedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.EventLoopWin.Callback.EventUpdated"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.EventLoopWin.Callback.TimerUpdatedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.EventLoopWin.Callback.TimerUpdated"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopWin.SetCallback(RealVNC.VncSdk.EventLoopWin.Callback)">
+            <summary>
+            Sets the event loop callback.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin_setCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopWin.GetEvents">
+            <summary>
+            Gets the array of events that the SDK currently wishes to be notified of.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin_getEvents</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.EventLoopWin.HandleEvent(System.Threading.WaitHandle)">
+            <summary>
+            Handles the given event (if any) and process expired timers.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopWin_handleEvent</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.ImmutableDataBuffer">
+            <summary>
+            An immutable DataBuffer, owned by the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataBuffer</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutableDataBuffer.GetData">
+            <summary>
+            Gets the data contained in the buffer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_DataBuffer_getData</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.ImmutablePixelFormat">
+            <summary>
+            An immutable PixelFormat, owned by the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.Rgb888">
+            <summary>
+            32 bits per pixel stored as XXXXXXXXRRRRRRRRGGGGGGGGBBBBBBBB in most
+            significant to least significant bit order
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_rgb888</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.Bgr888">
+            <summary>
+            32 bits per pixel stored as XXXXXXXXBBBBBBBBGGGGGGGGRRRRRRRR in most
+            significant to least significant bit order
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_bgr888</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.Rgb565">
+            <summary>
+            16 bits per pixel stored as RRRRRGGGGGGBBBBB in most significant to least
+            significant bit order
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_rgb565</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.Rgb555">
+            <summary>
+            16 bits per pixel stored as XRRRRRGGGGGBBBBB in most significant to least
+            significant bit order
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_rgb555</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.Bpp">
+            <summary>
+            Gets the total number of bits per pixel.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_bpp</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.Depth">
+            <summary>
+            Gets the number of significant bits that are used to store pixel data.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_depth</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.RedMax">
+            <summary>
+            Gets the maximum value for the red pixel value.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_redMax</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.GreenMax">
+            <summary>
+            Gets the maximum value for the green pixel value.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_greenMax</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.BlueMax">
+            <summary>
+            Gets the maximum value for the blue pixel value.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_blueMax</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.RedShift">
+            <summary>
+            Gets the number of bits the red pixel value is shifted.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_redShift</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.GreenShift">
+            <summary>
+            Gets the number of bits the green pixel value is shifted.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_greenShift</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.ImmutablePixelFormat.BlueShift">
+            <summary>
+            Gets the number of bits the blue pixel value is shifted.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_blueShift</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Keyboard">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Keyboard</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Library">
+            <summary>
+            A class containing SDK global properties and methods.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Library.EventLoopType">
+            <summary>
+            Enumeration of types of event loop used by the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_EventLoopType</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Library.EventLoopType.Default">
+            <summary>
+            The default event loop is a Windows event loop on Windows, a
+            file-descriptor event loop on Linux, a Core Foundation event loop on OS X
+            and iOS, and an Android event loop on Android.  There is no event loop in
+            HTML5.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Library.EventLoopType.Win">
+            <summary>
+            The Windows event loop is only available on Windows.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Library.EventLoopType.Fd">
+            <summary>
+            The file-descriptor event loop is available on Linux, OS X, iOS, and
+            Android.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Library.EventLoopType.Cf">
+            <summary>
+            The Core Foundation event loop is available on OS X and iOS.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Library.EventLoopType.Android">
+            <summary>
+            The Android "Looper" event loop is only available on Android.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.Init(RealVNC.VncSdk.Library.EventLoopType)">
+            <summary>
+            Initializes the VNC SDK and sets the event loop type.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.EnableAddOn(System.String)">
+            <summary>
+            Enable an SDK add-on by passing in the content of the add-on code,
+            obtained from RealVNC.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_enableAddOn</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.SetCloudProxySettings(System.Boolean,System.String)">
+            <summary>
+            Specifies proxy server settings for Cloud connections; note these settings
+            are adopted for all subsequent outgoing Cloud connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_setCloudProxySettings</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.GetLastError">
+            <summary>
+            Gets the error produced by the last API call.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_getLastError</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.GetMajorVersion">
+            <summary>
+            Returns the runtime major version number of the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_getMajorVersion</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.GetMinorVersion">
+            <summary>
+            Returns the runtime minor version number of the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_getMinorVersion</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.GetPatchVersion">
+            <summary>
+            Returns the runtime patch version number of the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_getPatchVersion</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.GetBuildNumber">
+            <summary>
+            Returns the runtime build number of the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_getBuildNumber</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.Shutdown">
+            <summary>
+            Shuts down the SDK, ensuring that any resources are cleared up.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_shutdown</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.UnicodeToKeysym(System.Int32)">
+            <summary>
+            Converts a unicode character to a keysym, suitable for passing to
+            Viewer.sendKeyDown().
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_unicodeToKeysym</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Library.KeysymToUnicode(System.Int32)">
+            <summary>
+            Converts a keysym to a unicode - suitable for converting a keysym
+            received on the server in Server.InputEventsCallback::keyEventCallback.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_keysymToUnicode</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Logger">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Logger.Callback">
+            <summary>
+            Callback which handles log messages.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Logger.Callback.LogMessage">
+            <summary>
+            Notification of log messages generated by the SDK.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_Callback::logMessage</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Logger.Callback.#ctor(RealVNC.VncSdk.Logger.Callback.LogMessageType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Logger.Callback.OnLogMessage(RealVNC.VncSdk.Logger.Level,System.String)">
+            <summary>
+            Handles the LogMessage event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Logger.Callback.LogMessage"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Logger.Callback.LogMessageType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Logger.Callback.LogMessage"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Logger.Level">
+            <summary>
+            Enumeration of log levels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_Level</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Logger.Level.Error">
+            <summary>
+            Information that the program is likely to stop functioning correctly.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Logger.Level.Basic">
+            <summary>
+            Useful information on the functioning of the system.  This is the
+            default log level.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Logger.Level.Full">
+            <summary>
+            Comprehensive logging of all SDK operations (may degrade performance,
+            and the log file will also contain secure information such as keystrokes)
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Logger.Level.Debug">
+            <summary>
+            Logging of SDK operations, and for debug purposes, logging of internal
+            information specific to RealVNC's implementation.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Logger.SetLevel(RealVNC.VncSdk.Logger.Level)">
+            <summary>
+            Sets the current log level.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_setLevel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Logger.CreateCustomLogger(RealVNC.VncSdk.Logger.Callback)">
+            <summary>
+            Creates a logger implementation that calls the given callback whenever a log
+            message is written.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_createCustomLogger</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Logger.CreateFileLogger(System.String)">
+            <summary>
+            Creates a logger that writes data to the specified log file.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_createFileLogger</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Logger.CreateStderrLogger">
+            <summary>
+            Creates a logger implementation that writes data to stderr.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_createStderrLogger</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Logger.DestroyLogger">
+            <summary>
+            Destroys any previously created logger.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Logger_destroyLogger</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.MessagingManager">
+            <summary>
+            Enables a Viewer or Server to send custom messages.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_MessagingManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.MessagingManager.Callback">
+            <summary>
+            Callback notifying when messages are received.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_MessagingManager_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.MessagingManager.Callback.MessageReceived">
+            <summary>
+            Notification that a message has been received.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_MessagingManager_Callback::messageReceived</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.MessagingManager.Callback.#ctor(RealVNC.VncSdk.MessagingManager.Callback.MessageReceivedType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_MessagingManager_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.MessagingManager.Callback.OnMessageReceived(RealVNC.VncSdk.MessagingManager,RealVNC.VncSdk.Connection,RealVNC.VncSdk.ImmutableDataBuffer)">
+            <summary>
+            Handles the MessageReceived event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.MessagingManager.Callback.MessageReceived"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.MessagingManager.Callback.MessageReceivedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.MessagingManager.Callback.MessageReceived"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.MessagingManager.SetCallback(RealVNC.VncSdk.MessagingManager.Callback)">
+            <summary>
+            Registers a callback notifying when messages are received.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_MessagingManager_setCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.MessagingManager.SendMessage(System.Byte[],RealVNC.VncSdk.Connection)">
+            <summary>
+            Sends a message.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_MessagingManager_sendMessage</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.PixelFormat">
+            <summary>
+            Description of how pixels are stored in a Viewer framebuffer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.PixelFormat.Rgb888">
+            <summary>
+            A convenience wrapper for <see cref="M:RealVNC.VncSdk.ImmutablePixelFormat.Rgb888"/>().
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.PixelFormat.Bgr888">
+            <summary>
+            A convenience wrapper for <see cref="M:RealVNC.VncSdk.ImmutablePixelFormat.Bgr888"/>().
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.PixelFormat.Rgb565">
+            <summary>
+            A convenience wrapper for <see cref="M:RealVNC.VncSdk.ImmutablePixelFormat.Rgb565"/>().
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.PixelFormat.Rgb555">
+            <summary>
+            A convenience wrapper for <see cref="M:RealVNC.VncSdk.ImmutablePixelFormat.Rgb555"/>().
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.PixelFormat.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a custom pixel format based on the given parameters.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.PixelFormat.Dispose">
+            <summary>
+            Destroy a custom pixel format.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_PixelFormat_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Private">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Private.SetCloudDeployment(System.Byte[])">
+            <summary>
+            Pass in a buffer containing a HostedConfig.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private_setCloudDeployment</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Private.ForceCloudDataRelay">
+            <summary>
+            Force data relay connections
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private_forceCloudDataRelay</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Private.GetReceiveStreamPos(RealVNC.VncSdk.Viewer)">
+            <summary>
+            Get the receiving data rate
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private_getReceiveStreamPos</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Private.EventLoopStep(System.Int32)">
+            <summary>
+            Waits for a specified time for an event to occur and then performs a single
+            iteration of the event loop.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private_eventLoopStep</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Private.SetParameter(System.String,System.String)">
+            <summary>
+            Set an arbitrary config parameter.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private_setParameter</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Private.GetParameter(System.String)">
+            <summary>
+            Get an arbitrary config parameter.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private_getParameter</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Private.LoggerWrite(RealVNC.VncSdk.Logger.Level,System.String,System.String)">
+            <summary>
+            Write to the logger instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Private_loggerWrite</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.RsaKey">
+            <summary>
+            A container for static methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_RsaKey</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.RsaKey.Callback">
+            <summary>
+            Callback which receives RSA key details.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_RsaKey_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.RsaKey.Callback.DetailsReady">
+            <summary>
+            Notification that the SDK's RSA key has been retrieved.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_RsaKey_Callback::detailsReady</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.RsaKey.Callback.#ctor(RealVNC.VncSdk.RsaKey.Callback.DetailsReadyType)">
+            <summary>
+            Initializes a new Callback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_RsaKey_Callback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.RsaKey.Callback.OnDetailsReady(RealVNC.VncSdk.ImmutableDataBuffer,System.String,System.String)">
+            <summary>
+            Handles the DetailsReady event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.RsaKey.Callback.DetailsReady"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.RsaKey.Callback.DetailsReadyType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.RsaKey.Callback.DetailsReady"/> callback.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.RsaKey.GetDetails(RealVNC.VncSdk.RsaKey.Callback,System.Boolean)">
+            <summary>
+            Requests the details for the machine's identifying RSA public key.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_RsaKey_getDetails</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.RsaKey.CancelDetails(RealVNC.VncSdk.RsaKey.Callback)">
+            <summary>
+            Cancels any outstanding notifications for the given callback.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_RsaKey_cancelDetails</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.RsaKey.Clear">
+            <summary>
+            Removes any stored RSA key from the data store.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_RsaKey_clear</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server">
+            <summary>
+            A VNC-compatible Server enabling a computer to be remotely controlled.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.SecurityCallback">
+            <summary>
+            Callback receiving security-related notifications for a Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_SecurityCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.SecurityCallback.VerifyPeer">
+            <summary>
+            Verify a Viewer's cryptographic identity.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_SecurityCallback::verifyPeer</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.SecurityCallback.IsUserNameRequired">
+            <summary>
+            Decide if a connecting Viewer is required to provide a user name.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_SecurityCallback::isUserNameRequired</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.SecurityCallback.IsPasswordRequired">
+            <summary>
+            Decide if a connecting Viewer is required to provide a password.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_SecurityCallback::isPasswordRequired</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.SecurityCallback.AuthenticateUser">
+            <summary>
+            Authenticate credentials presented by a Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_SecurityCallback::authenticateUser</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SecurityCallback.#ctor(RealVNC.VncSdk.Server.SecurityCallback.VerifyPeerType,RealVNC.VncSdk.Server.SecurityCallback.IsUserNameRequiredType,RealVNC.VncSdk.Server.SecurityCallback.IsPasswordRequiredType,RealVNC.VncSdk.Server.SecurityCallback.AuthenticateUserType)">
+            <summary>
+            Initializes a new SecurityCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_SecurityCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SecurityCallback.OnVerifyPeer(RealVNC.VncSdk.Server,RealVNC.VncSdk.Connection,System.String,RealVNC.VncSdk.ImmutableDataBuffer)">
+            <summary>
+            Handles the VerifyPeer event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.VerifyPeer"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SecurityCallback.OnIsUserNameRequired(RealVNC.VncSdk.Server,RealVNC.VncSdk.Connection)">
+            <summary>
+            Handles the IsUserNameRequired event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.IsUserNameRequired"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SecurityCallback.OnIsPasswordRequired(RealVNC.VncSdk.Server,RealVNC.VncSdk.Connection)">
+            <summary>
+            Handles the IsPasswordRequired event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.IsPasswordRequired"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SecurityCallback.OnAuthenticateUser(RealVNC.VncSdk.Server,RealVNC.VncSdk.Connection,System.String,System.String)">
+            <summary>
+            Handles the AuthenticateUser event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.AuthenticateUser"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.SecurityCallback.VerifyPeerType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.VerifyPeer"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.SecurityCallback.IsUserNameRequiredType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.IsUserNameRequired"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.SecurityCallback.IsPasswordRequiredType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.IsPasswordRequired"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.SecurityCallback.AuthenticateUserType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.SecurityCallback.AuthenticateUser"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.InputEventsCallback">
+            <summary>
+            Callback for handling input events.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_InputEventsCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.InputEventsCallback.PointerEventCallback">
+            <summary>
+            Handle pointer events manually.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_InputEventsCallback::pointerEventCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.InputEventsCallback.KeyEventCallback">
+            <summary>
+            Handle keypress events manually.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_InputEventsCallback::keyEventCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.InputEventsCallback.#ctor(RealVNC.VncSdk.Server.InputEventsCallback.PointerEventCallbackType,RealVNC.VncSdk.Server.InputEventsCallback.KeyEventCallbackType)">
+            <summary>
+            Initializes a new InputEventsCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_InputEventsCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.InputEventsCallback.OnPointerEventCallback(RealVNC.VncSdk.Server,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Handles the PointerEventCallback event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.InputEventsCallback.PointerEventCallback"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.InputEventsCallback.OnKeyEventCallback(RealVNC.VncSdk.Server,System.Int32,System.Boolean)">
+            <summary>
+            Handles the KeyEventCallback event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.InputEventsCallback.KeyEventCallback"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.InputEventsCallback.PointerEventCallbackType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.InputEventsCallback.PointerEventCallback"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.InputEventsCallback.KeyEventCallbackType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.InputEventsCallback.KeyEventCallback"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.ConnectionCallback">
+            <summary>
+            Callback receiving connection-related notifications for a Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_ConnectionCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionStarted">
+            <summary>
+            Notification that a connection has successfully started.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_ConnectionCallback::connectionStarted</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionEnded">
+            <summary>
+            Notification that a connection has ended.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_ConnectionCallback::connectionEnded</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.ConnectionCallback.#ctor(RealVNC.VncSdk.Server.ConnectionCallback.ConnectionStartedType,RealVNC.VncSdk.Server.ConnectionCallback.ConnectionEndedType)">
+            <summary>
+            Initializes a new ConnectionCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_ConnectionCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.ConnectionCallback.OnConnectionStarted(RealVNC.VncSdk.Server,RealVNC.VncSdk.Connection)">
+            <summary>
+            Handles the ConnectionStarted event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionStarted"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.ConnectionCallback.OnConnectionEnded(RealVNC.VncSdk.Server,RealVNC.VncSdk.Connection)">
+            <summary>
+            Handles the ConnectionEnded event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionEnded"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionStartedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionStarted"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionEndedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.ConnectionCallback.ConnectionEnded"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.AgentCallback">
+            <summary>
+            Callback receiving agent-related notifications for a Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_AgentCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.AgentCallback.AgentStarted">
+            <summary>
+            Notification that the agent has started.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_AgentCallback::agentStarted</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.AgentCallback.AgentStopped">
+            <summary>
+            Notification that the agent has stopped.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_AgentCallback::agentStopped</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.AgentCallback.#ctor(RealVNC.VncSdk.Server.AgentCallback.AgentStartedType,RealVNC.VncSdk.Server.AgentCallback.AgentStoppedType)">
+            <summary>
+            Initializes a new AgentCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_AgentCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.AgentCallback.OnAgentStarted(RealVNC.VncSdk.Server)">
+            <summary>
+            Handles the AgentStarted event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.AgentCallback.AgentStarted"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.AgentCallback.OnAgentStopped(RealVNC.VncSdk.Server)">
+            <summary>
+            Handles the AgentStopped event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Server.AgentCallback.AgentStopped"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.AgentCallback.AgentStartedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.AgentCallback.AgentStarted"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.AgentCallback.AgentStoppedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Server.AgentCallback.AgentStopped"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.DisconnectFlags">
+            <summary>
+            Enumeration of disconnection flags.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_DisconnectFlags</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.DisconnectFlags.Zero">
+            <summary>
+            No DisconnectFlags bits set.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.DisconnectFlags.Alert">
+            <summary>
+            The disconnection message is deemed to be sufficiently important that the
+            Viewer should alert the Viewer user.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.DisconnectFlags.Reconnect">
+            <summary>
+            Set the peer's <see cref="F:RealVNC.VncSdk.Viewer.DisconnectFlags.CanReconnect"/> flag, that is, the Server
+            informs the Viewer that the server may start again soon.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.CaptureMethod">
+            <summary>
+            Enumeration of screen capture methods.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_CaptureMethod</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.CaptureMethod.Optimal">
+            <summary>
+            Use the optimal capture method for the platform.  This is the default.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.CaptureMethod.Fallback">
+            <summary>
+            Use a fallback capture method under Windows and Linux.  This is likely to
+            be slower, but may solve rendering glitches with certain third-party
+            applications.  Not supported under Mac OS X.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.Permissions">
+            <summary>
+            Enumeration of session permissions that can be granted to a connecting
+            Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_Permissions</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.Zero">
+            <summary>
+            No Permissions bits set.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.View">
+            <summary>
+            Grants a Viewer permission to see the screen.  Rarely omitted.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.Keyboard">
+            <summary>
+            Grants a Viewer permission to inject keyboard events.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.Pointer">
+            <summary>
+            Grants a Viewer permission to inject mouse and touch events.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.Clipboard">
+            <summary>
+            Grants a Viewer permission to copy and paste text to and from the Server.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.Annotation">
+            <summary>
+            Grants a Viewer permission to draw on the Server screen.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.SelectDisplay">
+            <summary>
+            Grants a Viewer pemission to select the Server's display.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.Listen">
+            <summary>
+            Grants a Viewer pemission to listen to the Server.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.Permissions.All">
+            <summary>
+            Grants a Viewer a full set of permissions (that is, all of the above).
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Server.EncryptionLevel">
+            <summary>
+            Enumeration of encryption levels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_EncryptionLevel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.EncryptionLevel.Default">
+            <summary>
+            Use strong encryption.  This is the default.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Server.EncryptionLevel.Maximum">
+            <summary>
+            Use the strongest available encryption, possibly at the cost of speed.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.#ctor(System.String)">
+            <summary>
+            Creates a Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.CreateService(System.String)">
+            <summary>
+            Creates a Server running as a service.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_createService</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.Dispose">
+            <summary>
+            Destroys the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetConnectionCallback(RealVNC.VncSdk.Server.ConnectionCallback)">
+            <summary>
+            Sets connection-related callbacks for the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setConnectionCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetConnectionCount">
+            <summary>
+            Returns the total number of Viewers currently connected to the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getConnectionCount</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetSecurityCallback(RealVNC.VncSdk.Server.SecurityCallback)">
+            <summary>
+            Sets security-related callbacks for the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setSecurityCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetPermissions(RealVNC.VncSdk.Connection,RealVNC.VncSdk.Server.Permissions)">
+            <summary>
+            Changes permissions for a Viewer mid-session.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setPermissions</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetPermissions(RealVNC.VncSdk.Connection)">
+            <summary>
+            Gets the set of current permissions for a Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getPermissions</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetAgentCallback(RealVNC.VncSdk.Server.AgentCallback)">
+            <summary>
+            Sets agent-related callbacks for the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setAgentCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.IsAgentReady">
+            <summary>
+            Determines if the <c>vncagent</c> process is ready and available to capture the
+            display and inject input events.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_isAgentReady</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetFriendlyName(System.String)">
+            <summary>
+            Specifies a friendly name for the Server, to send to connected Viewers.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setFriendlyName</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetConnectionHandler">
+            <summary>
+            Obtains the Server's <see cref="T:RealVNC.VncSdk.ConnectionHandler"/> for performing connection
+            operations.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getConnectionHandler</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetPeerAddress(RealVNC.VncSdk.Connection)">
+            <summary>
+            Returns the address of a particular connected Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getPeerAddress</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.Disconnect(RealVNC.VncSdk.Connection,System.String,RealVNC.VncSdk.Server.DisconnectFlags)">
+            <summary>
+            Disconnects a particular Viewer, optionally specifying a message.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_disconnect</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.DisconnectAll(System.String,RealVNC.VncSdk.Server.DisconnectFlags)">
+            <summary>
+            Disconnects all Viewers, optionally specifying a message.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_disconnectAll</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetBlacklist(System.Int32,System.Int32)">
+            <summary>
+            Specifies a blacklist threshold and timeout for the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setBlacklist</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.EnableAudio(System.Boolean)">
+            <summary>
+            Enables transmission of audio from the Server to the Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_enableAudio</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetAnnotationManager">
+            <summary>
+            Obtains the Server's <see cref="T:RealVNC.VncSdk.AnnotationManager"/> for handling annotation
+            operations.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getAnnotationManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetMessagingManager">
+            <summary>
+            Obtains the Server's <see cref="T:RealVNC.VncSdk.MessagingManager"/> for handling messaging.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getMessagingManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetDisplayManager">
+            <summary>
+            Obtains the Server's <see cref="T:RealVNC.VncSdk.DisplayManager"/>, for managing the list of
+            displays made available by the Server and for setting the Server's
+            capture method.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getDisplayManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetEncryptionLevel(RealVNC.VncSdk.Server.EncryptionLevel)">
+            <summary>
+            Sets the desired encryption level of the session from the range of options
+            enumerated by <see cref="T:RealVNC.VncSdk.Server.EncryptionLevel"/>.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setEncryptionLevel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetEncryptionLevel(RealVNC.VncSdk.Connection)">
+            <summary>
+            Returns the encryption level being used with an incoming connection,
+            or the Server's current encryption level if the connection is null.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getEncryptionLevel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetIdleTimeout(System.Int32)">
+            <summary>
+            Sets the number of seconds to wait before disconnecting idle Viewers.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setIdleTimeout</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.GetIdleTimeout">
+            <summary>
+            Gets the current number of seconds to wait before disconnecting idle
+            Viewers.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_getIdleTimeout</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetInputEventsCallback(RealVNC.VncSdk.Server.InputEventsCallback)">
+            <summary>
+            Sets input control related callbacks for the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setInputEventsCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Server.SetCaptureMethod(RealVNC.VncSdk.Server.CaptureMethod)">
+            <summary>
+            Specifies the screen capture method used by the Server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Server_setCaptureMethod</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer">
+            <summary>
+            A VNC-compatible Viewer showing the screen of and controlling a remote computer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.PeerVerificationCallback">
+            <summary>
+            Callback receiving verification requests to check the peer's identity.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_PeerVerificationCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.PeerVerificationCallback.VerifyPeer">
+            <summary>
+            Request to verify the identity of the peer (the server).
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_PeerVerificationCallback::verifyPeer</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.PeerVerificationCallback.CancelPeerVerification">
+            <summary>
+            Notification to cancel a prior request for peer verification.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_PeerVerificationCallback::cancelPeerVerification</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.PeerVerificationCallback.#ctor(RealVNC.VncSdk.Viewer.PeerVerificationCallback.VerifyPeerType,RealVNC.VncSdk.Viewer.PeerVerificationCallback.CancelPeerVerificationType)">
+            <summary>
+            Initializes a new PeerVerificationCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_PeerVerificationCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.PeerVerificationCallback.OnVerifyPeer(RealVNC.VncSdk.Viewer,System.String,System.String,RealVNC.VncSdk.ImmutableDataBuffer)">
+            <summary>
+            Handles the VerifyPeer event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.PeerVerificationCallback.VerifyPeer"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.PeerVerificationCallback.OnCancelPeerVerification(RealVNC.VncSdk.Viewer)">
+            <summary>
+            Handles the CancelPeerVerification event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.PeerVerificationCallback.CancelPeerVerification"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.PeerVerificationCallback.VerifyPeerType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.PeerVerificationCallback.VerifyPeer"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.PeerVerificationCallback.CancelPeerVerificationType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.PeerVerificationCallback.CancelPeerVerification"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.FramebufferCallback">
+            <summary>
+            Callback receiving framebuffer event notifications for a Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_FramebufferCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.FramebufferCallback.ServerFbSizeChanged">
+            <summary>
+            Notification that the server's framebuffer size has changed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_FramebufferCallback::serverFbSizeChanged</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.FramebufferCallback.ViewerFbUpdated">
+            <summary>
+            Notification that the given rectangle of the viewer's framebuffer has been
+            updated with new pixel data.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_FramebufferCallback::viewerFbUpdated</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.FramebufferCallback.#ctor(RealVNC.VncSdk.Viewer.FramebufferCallback.ServerFbSizeChangedType,RealVNC.VncSdk.Viewer.FramebufferCallback.ViewerFbUpdatedType)">
+            <summary>
+            Initializes a new FramebufferCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_FramebufferCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.FramebufferCallback.OnServerFbSizeChanged(RealVNC.VncSdk.Viewer,System.Int32,System.Int32)">
+            <summary>
+            Handles the ServerFbSizeChanged event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.FramebufferCallback.ServerFbSizeChanged"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.FramebufferCallback.OnViewerFbUpdated(RealVNC.VncSdk.Viewer,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Handles the ViewerFbUpdated event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.FramebufferCallback.ViewerFbUpdated"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.FramebufferCallback.ServerFbSizeChangedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.FramebufferCallback.ServerFbSizeChanged"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.FramebufferCallback.ViewerFbUpdatedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.FramebufferCallback.ViewerFbUpdated"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ServerEventCallback">
+            <summary>
+            Callback receiving server event notifications for a Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ServerEventCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerClipboardTextChanged">
+            <summary>
+            Notification that the server's clipboard contains new text.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ServerEventCallback::serverClipboardTextChanged</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerFriendlyNameChanged">
+            <summary>
+            Notification that the server's friendly name has changed.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ServerEventCallback::serverFriendlyNameChanged</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ServerEventCallback.#ctor(RealVNC.VncSdk.Viewer.ServerEventCallback.ServerClipboardTextChangedType,RealVNC.VncSdk.Viewer.ServerEventCallback.ServerFriendlyNameChangedType)">
+            <summary>
+            Initializes a new ServerEventCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ServerEventCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ServerEventCallback.OnServerClipboardTextChanged(RealVNC.VncSdk.Viewer,System.String)">
+            <summary>
+            Handles the ServerClipboardTextChanged event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerClipboardTextChanged"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ServerEventCallback.OnServerFriendlyNameChanged(RealVNC.VncSdk.Viewer,System.String)">
+            <summary>
+            Handles the ServerFriendlyNameChanged event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerFriendlyNameChanged"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerClipboardTextChangedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerClipboardTextChanged"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerFriendlyNameChangedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.ServerEventCallback.ServerFriendlyNameChanged"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.AuthenticationCallback">
+            <summary>
+            Callback receiving requests for authentication for a Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_AuthenticationCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.AuthenticationCallback.RequestUserCredentials">
+            <summary>
+            Request for a username and/or password.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_AuthenticationCallback::requestUserCredentials</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.AuthenticationCallback.CancelUserCredentialsRequest">
+            <summary>
+            Notification to cancel a username and/or password request.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_AuthenticationCallback::cancelUserCredentialsRequest</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.AuthenticationCallback.#ctor(RealVNC.VncSdk.Viewer.AuthenticationCallback.RequestUserCredentialsType,RealVNC.VncSdk.Viewer.AuthenticationCallback.CancelUserCredentialsRequestType)">
+            <summary>
+            Initializes a new AuthenticationCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_AuthenticationCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.AuthenticationCallback.OnRequestUserCredentials(RealVNC.VncSdk.Viewer,System.Boolean,System.Boolean)">
+            <summary>
+            Handles the RequestUserCredentials event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.AuthenticationCallback.RequestUserCredentials"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.AuthenticationCallback.OnCancelUserCredentialsRequest(RealVNC.VncSdk.Viewer)">
+            <summary>
+            Handles the CancelUserCredentialsRequest event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.AuthenticationCallback.CancelUserCredentialsRequest"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.AuthenticationCallback.RequestUserCredentialsType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.AuthenticationCallback.RequestUserCredentials"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.AuthenticationCallback.CancelUserCredentialsRequestType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.AuthenticationCallback.CancelUserCredentialsRequest"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ConnectionCallback">
+            <summary>
+            Callback receiving state-change notifications for a Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ConnectionCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Connecting">
+            <summary>
+            Notification that is called when the viewer begins a connection attempt to
+            the server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ConnectionCallback::connecting</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Connected">
+            <summary>
+            Notification that is called when the viewer successfully connects to a
+            server (after authentication).
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ConnectionCallback::connected</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Disconnected">
+            <summary>
+            Notification that is called when the viewer disconnects from the server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ConnectionCallback::disconnected</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ConnectionCallback.#ctor(RealVNC.VncSdk.Viewer.ConnectionCallback.ConnectingType,RealVNC.VncSdk.Viewer.ConnectionCallback.ConnectedType,RealVNC.VncSdk.Viewer.ConnectionCallback.DisconnectedType)">
+            <summary>
+            Initializes a new ConnectionCallback class instance.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ConnectionCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ConnectionCallback.OnConnecting(RealVNC.VncSdk.Viewer)">
+            <summary>
+            Handles the Connecting event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Connecting"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ConnectionCallback.OnConnected(RealVNC.VncSdk.Viewer)">
+            <summary>
+            Handles the Connected event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Connected"/> delegate.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ConnectionCallback.OnDisconnected(RealVNC.VncSdk.Viewer,System.String,RealVNC.VncSdk.Viewer.DisconnectFlags)">
+            <summary>
+            Handles the Disconnected event.
+            By default, calls the <see cref="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Disconnected"/> delegate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ConnectionCallback.ConnectingType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Connecting"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ConnectionCallback.ConnectedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Connected"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ConnectionCallback.DisconnectedType">
+            <summary>
+            The type of the <see cref="F:RealVNC.VncSdk.Viewer.ConnectionCallback.Disconnected"/> callback.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.ConnectionStatus">
+            <summary>
+            Enumeration of connection statuses.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_ConnectionStatus</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ConnectionStatus.Disconnected">
+            <summary>
+            The viewer is not connected to a server.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ConnectionStatus.Connecting">
+            <summary>
+            The viewer is negotiating a connection to a server (includes
+            authentication).
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ConnectionStatus.Connected">
+            <summary>
+            The viewer is connected to a server.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.ConnectionStatus.Disconnecting">
+            <summary>
+            Viewer.disconnect() has been called but we've not yet disconnected
+            from the server.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.EncryptionLevel">
+            <summary>
+            Enumeration of encryption levels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_EncryptionLevel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.EncryptionLevel.Default">
+            <summary>
+            Use strong encryption.  This is the default.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.EncryptionLevel.Maximum">
+            <summary>
+            Use the strongest available encryption, possibly at the cost of speed.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.EncryptionLevel.Server">
+            <summary>
+            Respect the server's choice of encryption level. This means the viewer
+            will allow connections to third-party servers, but also represents the
+            weakest security, and may open the user up to man-in-the-middle type
+            attacks. Use with caution.
+            Note: to enable this feature, you will need a Third Party Connectivity
+            Add-on code - contact RealVNC for more information.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.MouseButton">
+            <summary>
+            Enumeration of mouse buttons.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_MouseButton</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.MouseButton.Zero">
+            <summary>
+            No MouseButton bits set.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.MouseButton.Left">
+            <summary>
+            The logical left mouse button.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.MouseButton.Middle">
+            <summary>
+            The logical middle mouse button.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.MouseButton.Right">
+            <summary>
+            The logical right mouse button.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.PictureQuality">
+            <summary>
+            Enumeration of picture quality levels.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_PictureQuality</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.PictureQuality.Auto">
+            <summary>
+            Auto quality means that the viewer selects an appropriate encoding and
+            colour level based on its own line speed estimate.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.DisconnectFlags">
+            <summary>
+            Enumeration of disconnection flags.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_DisconnectFlags</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.DisconnectFlags.Zero">
+            <summary>
+            No DisconnectFlags bits set.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.DisconnectFlags.AlertUser">
+            <summary>
+            The disconnection message could be shown to the user.  This is set if the
+            server sent this flag with its disconnection message, or the viewer
+            disconnected due to an error.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.DisconnectFlags.CanReconnect">
+            <summary>
+            The connection has been broken, but a reconnection attempt may succeed.
+            </summary>
+        </member>
+        <member name="T:RealVNC.VncSdk.Viewer.MouseWheel">
+            <summary>
+            Enumeration of mouse wheel directions.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_MouseWheel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.MouseWheel.Zero">
+            <summary>
+            No MouseWheel bits set.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.MouseWheel.Horizontal">
+            <summary>
+            The horizontal scroll wheel.
+            </summary>
+        </member>
+        <member name="F:RealVNC.VncSdk.Viewer.MouseWheel.Vertical">
+            <summary>
+            The vertical scroll wheel.
+            </summary>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.#ctor">
+            <summary>
+            Creates and returns a new viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_create</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.Dispose">
+            <summary>
+            Destroys the viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_destroy</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetConnectionCallback(RealVNC.VncSdk.Viewer.ConnectionCallback)">
+            <summary>
+            Sets the callbacks for the Viewer to call when various events occur during
+            its lifetime.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setConnectionCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetConnectionHandler">
+            <summary>
+            Returns the viewer's <see cref="T:RealVNC.VncSdk.ConnectionHandler"/> for accepting connections.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getConnectionHandler</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetConnectionStatus">
+            <summary>
+            Returns the status of the viewer's connection.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getConnectionStatus</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetPeerAddress">
+            <summary>
+            Returns the address of the viewer's server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getPeerAddress</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.Disconnect">
+            <summary>
+            Disconnects this viewer from the server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_disconnect</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetDisconnectReason">
+            <summary>
+            Returns a string ID representing the reason for the last viewer
+            disconnection.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getDisconnectReason</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetDisconnectMessage">
+            <summary>
+            Returns a human-readable message sent by the server for the last
+            disconnection, or null if the last disconnection was not initiated by the
+            server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getDisconnectMessage</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetFramebufferCallback(RealVNC.VncSdk.Viewer.FramebufferCallback)">
+            <summary>
+            Sets the framebuffer callback for this viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setFramebufferCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetViewerFb(System.Byte[],RealVNC.VncSdk.ImmutablePixelFormat,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the viewer framebuffer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setViewerFb</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetViewerFbWidth">
+            <summary>
+            Gets the width of the viewer framebuffer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getViewerFbWidth</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetViewerFbHeight">
+            <summary>
+            Gets the height of the viewer framebuffer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getViewerFbHeight</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetViewerFbPixelFormat">
+            <summary>
+            Gets the pixel format of the viewer framebuffer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getViewerFbPixelFormat</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetViewerFbData(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns the viewer framebuffer data for the given rectangle.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getViewerFbData</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetViewerFbStride">
+            <summary>
+            Returns the stride of the viewer framebuffer data in pixels, that is, the
+            number of pixels from the start of each row until the start of the next.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getViewerFbStride</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetServerEventCallback(RealVNC.VncSdk.Viewer.ServerEventCallback)">
+            <summary>
+            Sets the server event callback for this viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setServerEventCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SendClipboardText(System.String)">
+            <summary>
+            Copies the given text to the server's clipboard.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_sendClipboardText</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SendPointerEvent(System.Int32,System.Int32,RealVNC.VncSdk.Viewer.MouseButton,System.Boolean)">
+            <summary>
+            Sends a pointer event to the server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_sendPointerEvent</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SendScrollEvent(System.Int32,RealVNC.VncSdk.Viewer.MouseWheel)">
+            <summary>
+            Sends a scroll wheel event to the server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_sendScrollEvent</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SendKeyDown(System.Int32,System.Int32)">
+            <summary>
+            Sends a key down (press) event to the server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_sendKeyDown</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SendKeyUp(System.Int32)">
+            <summary>
+            Sends a key up (release) event to the server.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_sendKeyUp</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.ReleaseAllKeys">
+            <summary>
+            Send key up events for all currently pressed keys.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_releaseAllKeys</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetAuthenticationCallback(RealVNC.VncSdk.Viewer.AuthenticationCallback)">
+            <summary>
+            Sets the callback to be called when a username and/or password is required.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setAuthenticationCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SendAuthenticationResponse(System.Boolean,System.String,System.String)">
+            <summary>
+            Provides the SDK with the result of a username/password request.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_sendAuthenticationResponse</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetPeerVerificationCallback(RealVNC.VncSdk.Viewer.PeerVerificationCallback)">
+            <summary>
+            Sets the callbacks to be called to verify the identity of the peer (server).
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setPeerVerificationCallback</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SendPeerVerificationResponse(System.Boolean)">
+            <summary>
+            Provides the SDK with the response to the
+            Viewer.PeerVerificationCallback::verifyPeer request.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_sendPeerVerificationResponse</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.EnableAudio(System.Boolean)">
+            <summary>
+            Enables receipt of audio from the Server by the Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_enableAudio</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetAnnotationManager">
+            <summary>
+            Obtains the Viewer's <see cref="T:RealVNC.VncSdk.AnnotationManager"/> for handling annotation
+            operations.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getAnnotationManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetPictureQuality">
+            <summary>
+            Returns the viewer's current picture quality.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getPictureQuality</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetPictureQuality(RealVNC.VncSdk.Viewer.PictureQuality)">
+            <summary>
+            Sets the desired picture quality of the session from the range of options
+            enumerated by <see cref="T:RealVNC.VncSdk.Viewer.PictureQuality"/>.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setPictureQuality</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetMessagingManager">
+            <summary>
+            Obtains the Viewer's Messaging Manager for handling messaging
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getMessagingManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.SetEncryptionLevel(RealVNC.VncSdk.Viewer.EncryptionLevel)">
+            <summary>
+            Sets the desired encryption level of the session from the range of options
+            enumerated by <see cref="T:RealVNC.VncSdk.Viewer.EncryptionLevel"/>.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_setEncryptionLevel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetEncryptionLevel">
+            <summary>
+            Returns the Viewer's current encryption level.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getEncryptionLevel</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="M:RealVNC.VncSdk.Viewer.GetDisplayManager">
+            <summary>
+            Obtains the Viewer's <see cref="T:RealVNC.VncSdk.DisplayManager"/>, for managing the list of
+            displays made available by the Server to the Viewer.
+            </summary>
+            <remarks>
+            For more information, see <c>vnc_Viewer_getDisplayManager</c> in the C API documentation.
+            </remarks>
+        </member>
+        <member name="T:RealVNC.VncSdk.VncException">
+            <summary>
+            Thrown to indicate that the SDK has encountered an exceptional
+            condition.  This could include passing invalid arguments to a
+            method, a networking error occurring, an error creating a file,
+            or a logic error in the SDK user's calling code.
+            </summary>
+        </member>
+        <member name="P:RealVNC.VncSdk.VncException.ErrorCode">
+            <summary>
+            Contains the string code; values are listed for each function
+            in the C API reference.
+            </summary>
+        </member>
+    </members>
+</doc>

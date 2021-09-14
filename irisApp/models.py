@@ -1,5 +1,7 @@
 from django.db import models
-import re, bcrypt 
+from django.contrib.auth.models import UserManager
+from datetime import datetime
+import re, bcrypt
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.+_-]+\.[a-zA-Z]+$')
 
@@ -10,15 +12,13 @@ class UserManager(models.Manager):
         if email:
             errors['unique'] = 'Email already in use.'
         if not EMAIL_REGEX.match(postData['new_email']):
-            errors['badEmail'] = "Invalid email address!"
-        if len(postData['new_first_name']) < 3:
-            errors['first'] = "First name must be at least 2 characters long."
-        if len(postData['new_last_name']) < 3:
-            errors['last'] = "Last name must be at least 2 characters long."
+            errors['regex'] = "Please enter an appropriate email format."
+        if len(postData['first_name']) < 2 or len(postData['last_name']) < 2:
+            errors['names'] = "Please enter valid first and last name (>2 characters)."
         if len(postData['new_password']) < 8:
-            errors['badPass'] = "Password must be at least 8 characters long."
+            errors['bad_pass'] = "Please choose a secure password of at least 8 characters."
         if postData['new_password'] != postData['conf_password']:
-            errors['pass'] = "Passwords don't match!"
+            errors['pass_match'] = "Passwords do not match, please try again."
         return errors
     def update_validator(self, postData):
         errors = {}
@@ -33,18 +33,23 @@ class UserManager(models.Manager):
             errors['badPass'] = "Password must be at least 8 characters long."
         if len(postData['email']) < 3:
             errors['email'] = "Name must be at least 3 characters long."
-        """ if postData['admin'] != True or postData['admin'] != False:
-            errors['admin'] = "Must select if petitioning for admin." """
         return errors
     def login_validator(self, postData):
         errors = {}
-        email = User.objects.filter(email=postData['email'])
+        email = User.objects.filter(email=postData['user_email'])
         if not email:
-            errors['email'] = "You are not in the database"
+            errors['creds'] = "Invalid credentials."
         else:
             logged_user = email[0]
-            if not bcrypt.checkpw(postData['password'].encode(), logged_user.password):
-                errors['creds'] = "Invalid Credentials"
+            if not bcrypt.checkpw(postData['user_password'].encode(), logged_user.password.encode()):
+                errors['creds'] = "Invalid credentials"
+        return errors
+    def add_validator(self, postData):
+        errors = {}
+        if len(postData['name']) == 0:
+            errors['noName'] = 'Please designate a Machine Name.'
+        if len(postData['os']) < 5:
+            errors['noOS'] = 'Please input an Operating System.'
         return errors
 
 class User(models.Model):

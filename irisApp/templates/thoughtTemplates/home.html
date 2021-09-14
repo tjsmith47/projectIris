@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Appointment Portale</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="container-fluid gx-0 mx-0 px-0" id="white">
+    <nav class="navbar fixed-top bg-danger justify-content-between" id="nav2" role="group">
+        <a href="" class="navbar-brand"><h1 class="h1">Hey, {{ request.session.first_name }}!</h1></a> 
+        <div class="btn-group" role="group">
+            <a href="/thoughts" class="btn btn-secondary">Dashboard</a>
+            <a href="/logout" class="btn btn-warning">Logout</a> 
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="bod1 w-100 h-100" id="main">
+            <h2 class="h1 pt-3 text-center align-middle">Please Login or Register</h2>
+            <em class="black"></em>
+            <div class="container-fluid bg-danger" id="messages">
+                {% if messages %}
+                <ul class="message">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <em></em>
+            <div class="register">
+                <h2>Register</h2>
+                <form action='/register' method='POST' class="form-group g-0">
+                    {% csrf_token %}
+                    <div class="row row-cols-2">
+                        <!-- First Name Input Field -->
+                        <div class="row-md-6">
+                            <div class="col text-left">
+                                <label class="row-form-label" for="first_name">First Name:</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="first_name" placeholder="Ferris" aria-label="first_name">
+                            </div>
+                        </div>
+                        <div class="row-md-6">
+                            <!-- Last Name Input Field -->
+                            <div class="col text-left">
+                                <label class="row-form-label" for="last_name">Last Name:</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="last_name" placeholder="Bueller" aria-label="last_name">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row-md-12">
+                        <div class="row row-cols-1">
+                            <!-- Email Input Field -->
+                            <div class="col px-3 text-left">
+                                <label class="row-form-label" for="new_email">Email Address:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="email" name="new_email" id="emailField" placeholder="fbgm@jarvisprotocol.one" aria-label="email">
+                            </div>
+                            <div class="emailFeedback" style="display:none"></div>
+                            <p class="text-sm text-success emailSuccessOutput"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row row-cols-2">
+                        <!-- Password Input Field -->
+                        <div class="row-md-6">
+                            <div class="col text-left">
+                                <label class="row-form-label" for="new_password">Password:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="new_password" placeholder="***********" aria-label="new_password">
+                            </div>
+                        </div>
+                        <div class="row-md-6">
+                            <!-- Confirm Password Input Field -->
+                            <div class="col text-left">
+                                <label class="row-form-label" for="conf_password">Confirm Password:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="conf_password" placeholder="***********" form- aria-label="conf_password">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row text-center">
+                        <!-- Register Button -->
+                        <input class="btn btn-light btn-lg btn-block active" type="submit" id="button1" value="Create Account" aria-label="create_user">
+                    </div>
+                </form>
+            </div>
+            <em class="w-75"></em>
+            <div class="login">
+                <h2>Login</h2>
+                <form action='/login' method="POST" class="form-group">
+                    {% csrf_token %}
+                    <div class="row row-cols-2 g-0">
+                        <!-- Title Input Field -->
+                        <div class="row-md-6">
+                            <div class="col text-left">
+                                <label class="row-form-label" for="user_email">Email:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="email" name="user_email" placeholder="*****@jarvisprotocol.one" aria-label="user_email">
+                            </div> 
+                        </div>
+                        <div class="row-md-6">
+                            <!-- Password Input Field -->
+                            <div class="col text-left">
+                                <label class="row-form-label" for="user_password">Password:</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="user_password" placeholder="***********" form- aria-label="user_password">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row p-0 text-center">
+                        <!-- Register Button -->
+                        <input class="btn btn-light btn-lg btn-block active" type="submit" id="button2" value="Log In" aria-label="login">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

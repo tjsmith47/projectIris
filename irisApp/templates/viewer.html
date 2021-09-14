@@ -34,11 +34,11 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- VNC JavaScript SDK -->
-    <script src="../../static/js/vncsdk.js"></script>
+    <script src="{% static 'js/vncsdk.js' %}"></script>
     {% comment %} <script src="../../static/js//vncsdk.js"></script> {% endcomment %}
     <!-- Sample app -->
-    <link rel="stylesheet" href="../../static/css/viewer.css">
-    <script src="../../static/js/viewer.js"></script>
+    <link rel="stylesheet" href="{% static 'css/viewer.css' %}">
+    <script src="{% static 'js/viewer.js' %}"></script>
     <title>VNC SDK - basicViewerHTML5</title>
   </head>
   <body>

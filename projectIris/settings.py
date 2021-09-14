@@ -23,6 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
+API_KEY = str(os.getenv('API_KEY'))
+API_SECRET = str(os.getenv('API_SECRET'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -126,4 +128,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = 'projectIris/static/'
+STATIC_URL = '/static/'
