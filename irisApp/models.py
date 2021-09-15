@@ -13,7 +13,7 @@ class UserManager(models.Manager):
             errors['unique'] = 'Email already in use.'
         if not EMAIL_REGEX.match(postData['new_email']):
             errors['regex'] = "Please enter an appropriate email format."
-        if len(postData['first_name']) < 2 or len(postData['last_name']) < 2:
+        if len(postData['new_first_name']) < 2 or len(postData['new_last_name']) < 2:
             errors['names'] = "Please enter valid first and last name (>2 characters)."
         if len(postData['new_password']) < 8:
             errors['bad_pass'] = "Please choose a secure password of at least 8 characters."

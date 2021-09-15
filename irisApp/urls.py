@@ -13,7 +13,7 @@ urlpatterns = [
     #localhost:8000/register
     path('register', views.register),
     #localhost:8000/thoughts
-    path('thoughts', views.dash),
+    path('dashboard', views.dash),
     #localhost:8000/appointments/new
     path('appointments/new', views.new, name='new'), 
     #localhost:8000/appointments/new

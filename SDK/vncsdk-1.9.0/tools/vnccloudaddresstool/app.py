@@ -240,3 +240,6 @@ def _save_api_key():
     except Exception as e:
         raise RequestError(e)
     return json.dumps(key if record_id else "null")
+
+if __name__=="__main__":
+    app.run(debug=True)

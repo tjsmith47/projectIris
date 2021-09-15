@@ -61,8 +61,8 @@
                         <em class="text-center" id="favdiv2"></em>
                     </div>
                     <div class="row-md-12">
-                        {% if not_faved == True %}
-                            {% for quote in not_faved %}
+                        {% comment %} {% if not_faved == True %}
+                            {% for quote in not_faved %} 
                             <div class="container">
                                 <div class="row row-cols-1">
                                     <div class="text-left" id="fav2">
@@ -75,12 +75,12 @@
                                 </div>
                             </div>
                             {% endfor %}
-                        {% else %}
+                        {% else %} 
                             <div class="container">
                                 <h2 class="h2 text-center">Nobody has posted yet!</h2>
                                 <p class="h3 p-5 text-center">Submit a Quotable Quote of your own in the middle for all to appreciate!</p>
                             </div>
-                        {% endif %}
+                        {% endif %} {% endcomment %}
                     </div>
                 </div>
                 <div class="col-xl m-0" id="fav1">
@@ -103,7 +103,7 @@
                                     <label class="row-form-label" for="colFormLabel"><h4>Quoted By:</h4></label>
                                 </div>
                                 <div class="col">
-                                    <input class="form-control" type="text" id="colFormLabel" name="quoted_by" value="{{ quote.quoted_by }}" aria-label="title">
+                                    <input class="form-control" type="text" id="colFormLabel" name="user_machines" value="{{ user.machines }}" aria-label="title">
                                 </div>
                             </div>
                         </div>
@@ -127,18 +127,18 @@
                     </form>
                 </div>
                 <div class="col-xl py-2" id="fav1">
-                    <h2 class="p-3">Your Favorites</h2>
+                    <h2 class="p-3">Your Machines</h2>
                     <div class="text-center" id="quotediv">
                         <em class="text-center" id="favdiv"></em>
                         <em class="text-center" id="favdiv2"></em>
                     </div>
                     <div class="row-md-12">
-                        {% if fav_quotes == True %}
-                            {% for quote in fav_quotes %}
+                        {% if all_machines == True %}
+                            {% for machine in all_machines %}
                             <div class="container">
                                 <div class="row row-cols-1">
                                     <div class="text-left" id="fav2">
-                                        <p id="{{ quote.id }}">{{ quote.quoted_by }}: {{ quote.message }}</p>
+                                        {% comment %} <p id="{{ quote.id }}">{{ quote.quoted_by }}: {{ quote.message }}</p>
                                         {% if logged_user.id == user.id %}
                                             <div class="btn-group" role="group">
                                                 <a href="/quotes/{{ quote.id }}/edit" class="btn btn-secondary">Edit Post</a>
@@ -146,7 +146,7 @@
                                             </div>
                                         {% else %}
                                             <a class="text-right" href="/quotes/{{ quote.id }}/fav">Remove from Favorites</a>
-                                        {% endif %}
+                                        {% endif %} {% endcomment %}
                                     </div>
                                 </div>
                             </div>

@@ -10,7 +10,7 @@ API_SECRET = str(os.getenv('API_SECRET'))
 
 #localhost:8000/
 def index(request):
-    return redirect('/viewer')
+    return redirect('/landing')
 
 def viewer(request):
     context = {
@@ -32,7 +32,7 @@ def login(request):
     if len(errors) > 0:
         for value in errors.values():
             messages.error(request, value)
-        return redirect('/home')
+        return redirect('/')
     else:
         logged_user = User.objects.get(email=request.POST['user_email'])
         request.session['user_id'] = logged_user.id
@@ -48,13 +48,13 @@ def register(request):
     if len(errors) > 0:
         for value in errors.values():
             messages.error(request, value)
-        return redirect('/home')
+        return redirect('/')
     else:
         password = request.POST['new_password']
         pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
         new_user = User.objects.create(
-            first_name = request.POST['first_name'],
-            last_name = request.POST['last_name'],
+            first_name = request.POST['new_first_name'],
+            last_name = request.POST['new_last_name'],
             email = request.POST['new_email'],
             password = pw_hash,
         )
@@ -69,14 +69,10 @@ def dash(request):
         if 'user_id' not in request.session:
             return redirect('/')
     logged_user = User.objects.get(id=request.session['user_id'])
-    thoughts_liked = logged_user.thoughts_liked.all()
-    thoughts = Machine.objects.all().order_by('-users_who_like')
-    users = User.objects.all(),
+    machines = Machine.objects.all(),
     context = {
-        'all_thoughts' : thoughts,
         'logged_user' : logged_user,
-        'all_users': users,
-        'thoughts_liked' : thoughts_liked,
+        'all_machines': machines,
     }
     return render(request, 'dashboard.html', context)
 
@@ -111,22 +107,14 @@ def create(request):
 
 def thoughts(request, thought_id):
     logged_user = User.objects.get(id=request.session['user_id'])
-    thoughts_liked = logged_user.thoughts_liked.all()
     thought = Machine.objects.get(id=thought_id)
-    poster = thought.posted_by.first_name
     all_users = User.objects.all()
-    likers = thought.users_who_like.all()
-    thoughts = Machine.objects.all().order_by('users_who_like')
     users = User.objects.all(),
     context = {
         'all_thoughts' : thoughts,
         'logged_user' : logged_user,
         'all_users': users,
-        'thoughts_liked' : thoughts_liked,
-        'thought' : thought,
         'all_users' : all_users,
-        'poster' : poster,
-        'likers' : likers
     }
     return render(request, 'thoughts.html', context)
 
