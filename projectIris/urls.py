@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('', include('irisApp.urls')),
     path('admin/', admin.site.urls),
+    #path('^media/', include('private_storage.urls')),
+]
+
+urlpatterns += [
 ]

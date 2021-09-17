@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import User, Machine
+from django.core.files import File
+from .models import User, Machine, File
 from dotenv import load_dotenv
 import bcrypt, os, datetime, requests
 load_dotenv()
@@ -22,7 +23,7 @@ def viewer(request):
 #localhost:8000/landing
 def land(request):
     return render(request, 'index.html')
-    
+
 #localhost:8000/login
 def login(request):
     if request.method == 'GET':
@@ -63,7 +64,7 @@ def register(request):
         request.session['first_name'] = new_user.first_name
         return redirect('/dashboard')
 
-#localhost:8000/thoughts
+#localhost:8000/dashboard
 def dash(request):
     if request.method == "GET":
         if 'user_id' not in request.session:
@@ -71,17 +72,46 @@ def dash(request):
     logged_user = User.objects.get(id=request.session['user_id'])
     machines = Machine.objects.all(),
     context = {
-        'logged_user' : logged_user,
+        'user' : logged_user,
         'all_machines': machines,
     }
-    return render(request, 'dashboard.html', context)
+    return redirect('/files')
+    #return render(request, 'iris/dashboard.html', context)
+
+#localhost:8000/files
+def files(request):
+    context = {
+        'user_files' : File.objects.filter(owner=User.objects.get(id=request.session['user_id'])),
+    }
+    return render(request, 'iris/form_upload.html', context)
+
+#localhost:8000/files/upload
+def upload(request):
+    if request.method == 'GET':
+        if 'user_id' not in request.session:
+            return redirect('/')
+    """ errors = User.objects.add_validator(request.POST)
+    # if errors are present:
+    if len(errors) > 0:
+        for value in errors.values():
+            messages.error(request, value)
+        return redirect('/devices/new') 
+    else:"""
+    logged_user = User.objects.get(id=request.session['user_id'])
+    file = File.objects.create(
+        file=request.POST['new'],
+        #name=request.POST['new_file'],
+        owner=logged_user
+    )
+    file.save()
+    return redirect('/dashboard')
 
 #localhost:8000/appointments/new
 def new(request):
     context = {
         'status' : Machine.objects.all(),
     }
-    return render(request, 'new.html', context)
+    return render(request, 'form_upload.html', context)
 
 #localhost:8000/appointments/create
 def create(request):
@@ -159,3 +189,26 @@ def destroy(request, thought_id):
 def logout(request):
     request.session.flush()
     return redirect('/')
+
+from django.shortcuts import render
+from django.template import loader
+from django.http import HttpResponse
+
+
+def index(request):
+    context = {}
+    template = loader.get_template('app/index.html')
+    return HttpResponse(template.render(context, request))
+
+
+def iris_html(request):
+    context = {
+        'user_files' : File.objects.filter(owner=User.objects.get(id=request.session['user_id'])),
+    }
+    # The template to be loaded as per gentelella.
+    # All resource paths for gentelella end in .html.
+
+    # Pick out the html file name from the url. And load that template.
+    load_template = request.path.split('/')[-1]
+    template = loader.get_template('iris/' + load_template)
+    return HttpResponse(template.render(context, request))

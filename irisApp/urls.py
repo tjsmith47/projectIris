@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
@@ -12,18 +12,19 @@ urlpatterns = [
     path('login', views.login),
     #localhost:8000/register
     path('register', views.register),
-    #localhost:8000/thoughts
+    #localhost:8000/dashboard
     path('dashboard', views.dash),
+    #localhost:8000/files
+    path('files', views.files),
     #localhost:8000/appointments/new
-    path('appointments/new', views.new, name='new'), 
+    path('files/', views.new, name='new'), 
     #localhost:8000/appointments/new
-    path('appointments/create', views.create, name='create'), 
-    #localhost:8000/appointments/1/like
-    path('appointments/<int:appt_id>/edit', views.edit, name='edit'), 
-    #localhost:8000/appointments/1/like
-    path('appointments/<int:appt_id>/<int:stat_id>/update', views.update, name='update'), 
+    path('files/upload', views.upload, name='upload'),
     #localhost:8000/thoughts/1/destroy
-    path('thoughts/<int:thought_id>/destroy', views.destroy),
+    path('file/<int:file_id>/destroy', views.destroy),
     #localhost:8000/logout
     path('logout', views.logout),
+    re_path(r'^.*\.html', views.iris_html, name='iris'),
+    # The home page
+    #path('', views.index, name='index'),
 ]

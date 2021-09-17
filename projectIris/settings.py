@@ -36,12 +36,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'irisApp',
+    'private_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +72,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'django.template.context_processors.media',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -129,3 +132,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATIC_ROOT = 'static/'
+
+# Media files (Files & Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+# MEDIA_URL = '/server/media/'
+# STATIC_ROOT = 'static/'
+
+PRIVATE_STORAGE_ROOT = '/server/media/'
+PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_staff'

@@ -1,5 +1,7 @@
 from django.db import models
+from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import UserManager
+#from private_storage.fields import PrivateFileField
 from datetime import datetime
 import re, bcrypt
 
@@ -78,3 +80,11 @@ class Machine(models.Model):
         return "{} {} ({})".format(
             self.name, self.owner, self.op_sys
             )
+
+server = FileSystemStorage(location="server/media/")
+
+class File(models.Model):
+    # id
+    owner = models.ForeignKey(User, related_name="files", on_delete = models.CASCADE)
+    #name = models.CharField(max_length=50)
+    file = models.FileField(storage=server, upload_to='server/media/')
