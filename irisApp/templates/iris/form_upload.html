@@ -4,6 +4,7 @@
 
 {% block stylesheets %}
   {{ block.super }}
+  {% load crispy_forms_tags %}
   <!-- Dropzone.js -->
   <link href="/static/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 {% endblock stylesheets %}
@@ -47,23 +48,40 @@
                     </li>
                   </ul>
                 </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a></li>
               </ul>
               <div class="clearfix"></div>
             </div>
             <div class="x_content">
-              <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
-              <form action="/files/upload" method="POST" name="files" class="dropzone">
+              {% comment %} <div class="content-section pt-2 mt-3 shadow-lg"  >
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">
+                            Post
+                        </legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary" type="submit"><i class="fas fa-upload"></i> Upload</button>
+                    </div>
+                </form>
+              </> {% endcomment %}
+              <form action="" method="POST" enctype="multipart/form-data" class="dropzone">
                 {% csrf_token %}
-                <input type="file" name="new">
-                <br />
-                <br />
-                <br />
-                <br />
-                <div class="row text-center">
-                  <!-- Upload Button -->
-                  <input class="btn btn-light btn-lg btn-block active" type="submit" id="button1" value="Upload" aria-label="upload_files">
+                <fieldset class="form-group">
+                  <legend class="border-bottom mb-4">
+                    <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+                  </legend>
+                  {{ form|crispy }}
+                  <br />
+                  <br />
+                  <br />
+                  <br /><input type="file" name="new">
+                </fieldset>
+                <!-- Upload Button -->
+                <div class="form-group">
+                  <button class="btn btn-outline-primary" type="submit"><i class="fas fa-upload"></i> Upload</button>
                 </div>
               </form>
             </div>
@@ -75,6 +93,12 @@
 
 {% endblock content %}
 
+                  {% comment %}       
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div class="row text-center"> {% endcomment %}
 {% block javascripts %}
   {{ block.super }}
   <!-- Dropzone.js -->

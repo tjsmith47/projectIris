@@ -37,13 +37,13 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'irisApp',
     'private_storage',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -132,13 +132,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = 'static/'
+STATIC_ROOT= os.path.join(BASE_DIR, 'static'),
 
-# Media files (Files & Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+MEDIA_ROOT = os.path.join(BASE_DIR, 'server')
+MEDIA_URL = '/server/'
 
-# MEDIA_URL = '/server/media/'
-# STATIC_ROOT = 'static/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-PRIVATE_STORAGE_ROOT = '/server/media/'
-PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_staff'
+LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_URL = 'login'

@@ -1,9 +1,8 @@
 from django.db import models
-from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import UserManager
-#from private_storage.fields import PrivateFileField
-from datetime import datetime
-import re, bcrypt
+from django.urls import reverse
+from PIL import Image
+import re, bcrypt, os
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.+_-]+\.[a-zA-Z]+$')
 
@@ -38,7 +37,7 @@ class UserManager(models.Manager):
         return errors
     def login_validator(self, postData):
         errors = {}
-        email = User.objects.filter(email=postData['user_email'])
+        email = User.objects.filter(email=postData.get('user_email'))
         if not email:
             errors['creds'] = "Invalid credentials."
         else:
@@ -60,12 +59,38 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=100)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics/{self.id}')
     # machines = a list of machines associated with a given user
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = UserManager()
     def __repr__(self):
         return '{} {}'.format(self.first_name, self.last_name)
-    objects = UserManager()
+    def save(self, *args, **kwargs):
+        super(User, self).save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+
+class File(models.Model):
+    # id
+    title = models.CharField(max_length=100)
+    file = models.FileField(null=True, blank=True, upload_to='files/{self.owner.id}')
+    content = models.TextField(null=True, blank=True)
+    owner = models.ForeignKey(User, related_name="files", on_delete = models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.title
+    def extension(self):
+        name, extension = os.path.splitext(self.file.name)
+        return extension
+    def get_absolute_url(self):
+        return reverse('upload', kwargs={'pk': self.pk})
+
+
 
 class Machine(models.Model):
     # id
@@ -80,11 +105,3 @@ class Machine(models.Model):
         return "{} {} ({})".format(
             self.name, self.owner, self.op_sys
             )
-
-server = FileSystemStorage(location="server/media/")
-
-class File(models.Model):
-    # id
-    owner = models.ForeignKey(User, related_name="files", on_delete = models.CASCADE)
-    #name = models.CharField(max_length=50)
-    file = models.FileField(storage=server, upload_to='server/media/')

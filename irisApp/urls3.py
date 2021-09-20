@@ -1,12 +1,4 @@
 from django.urls import path, re_path
-from .views import (
-    PostCreateView,
-)
-''' PostListView,
-PostDetailView,
-PostUpdateView,
-PostDeleteView,
-UserPostListView '''
 from . import views
 
 urlpatterns = [
@@ -17,15 +9,15 @@ urlpatterns = [
     #localhost:8000/landing
     path('viewer', views.viewer),
     #localhost:8000/login
-    path('login', views.login, name="login"),
+    path('login', views.login),
     #localhost:8000/register
     path('register', views.register),
     #localhost:8000/dashboard
     path('dashboard', views.dash),
     #localhost:8000/files
-    path('files/', views.files),
+    path('files', views.files),
     #localhost:8000/appointments/new
-    path('files', PostCreateView.as_view(), name='new'), 
+    path('files/', views.new, name='new'), 
     #localhost:8000/appointments/new
     path('files/upload', views.upload, name='upload'),
     #localhost:8000/thoughts/1/destroy
@@ -37,7 +29,18 @@ urlpatterns = [
     #path('', views.index, name='index'),
 ]
 
-''' urlpatterns = [
+from django.urls import path
+from .views import (
+    PostListView,
+    PostDetailView,
+    PostCreateView,
+    PostUpdateView,
+    PostDeleteView,
+    UserPostListView
+)
+from . import views
+
+urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),
     path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
@@ -47,4 +50,4 @@ urlpatterns = [
     path('media/Files/<int:pk>',PostDeleteView.as_view(),name='post-delete' ),
     path('search/',views.search,name='search' ),
     path('about/', views.about, name='blog-about'),
-] '''
+]
