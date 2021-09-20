@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.staticfiles.views import serve
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.views.generic import (
     ListView,
@@ -127,15 +126,11 @@ def new(request):
     }
     return render(request, 'form_upload.html', context)
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(CreateView):
     model = File
     template_name = 'iris/form_upload.html'
     fields = ['title', 'content', 'file']
-    ''' user = User.objects.get(id=request.session['user_id']) '''
-    ''' def get_queryset(self):
-        user = get_object_or_404(User, user_id=self.kwargs.get('user_id'))
-        return File.objects.filter(owner=user)'''
-    
+
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form) 

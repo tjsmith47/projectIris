@@ -77,9 +77,9 @@ class User(models.Model):
 class File(models.Model):
     # id
     title = models.CharField(max_length=100)
-    file = models.FileField(null=True, blank=True, upload_to='files/{self.owner.id}')
-    content = models.TextField(null=True, blank=True)
     owner = models.ForeignKey(User, related_name="files", on_delete = models.CASCADE)
+    file = models.FileField(null=True, blank=True, upload_to='files/{{self.owner.id}}')
+    content = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
