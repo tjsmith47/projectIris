@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (
-    PostCreateView,
+    FileCreateView,
+    FileUpdateView,
 )
 from . import views
 
@@ -20,7 +21,9 @@ urlpatterns = [
     #localhost:8000/files
     path('gallery', views.gallery, name='gallery'),
     #localhost:8000/appointments/new
-    path('files', PostCreateView.as_view(), name='new'), 
+    path('files', FileCreateView.as_view(), name='new'), 
+    #localhost:8000/appointments/new
+    path('file/<int:pk>/update', FileUpdateView.as_view(), name='update'), 
     #localhost:8000/appointments/new
     path('files/upload', views.upload, name='upload'),
     #localhost:8000/thoughts/1/destroy

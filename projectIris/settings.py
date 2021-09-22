@@ -36,7 +36,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'irisApp',
-    'private_storage',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

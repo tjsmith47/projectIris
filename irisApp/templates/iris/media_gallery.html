@@ -98,7 +98,7 @@
                             <div class="tools tools-bottom">
                               <a href="{{ file.file.url }}"><i class="fa fa-download"></i></a>
                               {% if file.owner == user %}
-                                <a href="#"><i class="fa fa-pencil"></i></a>
+                                <a href="{% url 'update' pk=file.id %}"><i class="fa fa-pencil"></i></a>
                                 <a href="/file/{{file.id}}/destroy"><i class="fa fa-times"></i></a>
                               {% endif %}
                             </div>
