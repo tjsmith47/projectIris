@@ -22,7 +22,7 @@
 #main {
     padding: 80px;
     padding-top: 92.5px;
-    min-height:auto;
+    min-height:100vh;
     min-width:100%;
 }
 #main2 {

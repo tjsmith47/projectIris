@@ -1,6 +1,6 @@
 {% extends "iris/dashboard.html" %}
 
-{% block title %} {{ user.first_name }}'s Files {% endblock title %}
+{% block title %} {{ request.session.first_name }}'s Files {% endblock title %}
 
 {% block stylesheets %}
   {{ block.super }}
@@ -16,7 +16,6 @@
         <div class="title_left">
           <h3>File Upload </h3>
         </div>
-
         <div class="title_right">
           <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
             <div class="input-group">
@@ -28,14 +27,12 @@
           </div>
         </div>
       </div>
-
       <div class="clearfix"></div>
-
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Dropzone multiple file uploader</h2>
+              <h2>User file uploader</h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -53,35 +50,19 @@
               <div class="clearfix"></div>
             </div>
             <div class="x_content">
-              {% comment %} <div class="content-section pt-2 mt-3 shadow-lg"  >
-                <form action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">
-                            Post
-                        </legend>
-                        {{ form|crispy }}
-                    </fieldset>
-                    <div class="form-group">
-                        <button class="btn btn-outline-primary" type="submit"><i class="fas fa-upload"></i> Upload</button>
-                    </div>
-                </form>
-              </> {% endcomment %}
-              <form action="" method="POST" enctype="multipart/form-data" class="dropzone">
+              <form action="/files/upload" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <fieldset class="form-group">
                   <legend class="border-bottom mb-4">
-                    <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+                    <p>Select a file to upload.</p>
                   </legend>
                   {{ form|crispy }}
                   <br />
                   <br />
-                  <br />
-                  <br /><input type="file" name="new">
                 </fieldset>
                 <!-- Upload Button -->
-                <div class="form-group">
-                  <button class="btn btn-outline-primary" type="submit"><i class="fas fa-upload"></i> Upload</button>
+                <div class="form-group text-center align-center mx-0">
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-upload"></i> Upload</button>
                 </div>
               </form>
             </div>
@@ -90,15 +71,8 @@
       </div>
     </div>
   </div>
-
 {% endblock content %}
 
-                  {% comment %}       
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <div class="row text-center"> {% endcomment %}
 {% block javascripts %}
   {{ block.super }}
   <!-- Dropzone.js -->

@@ -10,15 +10,15 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="container-fluid gx-0 mx-0 px-0 w-100">
+<body class="container-fluid gx-0 mx-0 px-0 w-100" id="bod1">
     <nav class="navbar fixed-top navbar-dark bg-danger justify-content-center" id="nav1" role="group">
         <a href="" class="navbar-brand"><h1 class="h1">Welcome to Jarvis Protocol.</h1></a> 
     </nav>
     <div class="container-fluid px-0">
-        <div class="bod1 w-100" id="main">
+        <div class="bod1 w-100 h-100" id="main">
             <h2>Please Login or Register</h2>
             <em class="black"></em>
-            <div class="container-fluid m-0">
+            <div class="container-fluid align-center" id="messages">
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}

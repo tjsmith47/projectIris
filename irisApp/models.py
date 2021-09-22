@@ -45,13 +45,6 @@ class UserManager(models.Manager):
             if not bcrypt.checkpw(postData['user_password'].encode(), logged_user.password.encode()):
                 errors['creds'] = "Invalid credentials"
         return errors
-    def add_validator(self, postData):
-        errors = {}
-        if len(postData['name']) == 0:
-            errors['noName'] = 'Please designate a Machine Name.'
-        if len(postData['os']) < 5:
-            errors['noOS'] = 'Please input an Operating System.'
-        return errors
 
 class User(models.Model):
     # id
@@ -59,12 +52,13 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=100)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics/{self.id}')
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
     # machines = a list of machines associated with a given user
+    # files = a list of files associated with a given user
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
-    def __repr__(self):
+    def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
     def save(self, *args, **kwargs):
         super(User, self).save(*args, **kwargs)
@@ -74,22 +68,22 @@ class User(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
+
 class File(models.Model):
     # id
-    title = models.CharField(max_length=100)
-    owner = models.ForeignKey(User, related_name="files", on_delete = models.CASCADE)
-    file = models.FileField(null=True, blank=True, upload_to='files/{{self.owner.id}}')
+    title = models.CharField(max_length=100, null=True, blank=True)
+    owner = models.ForeignKey(User, null=True, blank=True, related_name="files", on_delete = models.CASCADE)
+    file = models.FileField(null=True, blank=True, upload_to='files')
     content = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
-        return self.title
+        return self.file.name
     def extension(self):
         name, extension = os.path.splitext(self.file.name)
         return extension
     def get_absolute_url(self):
         return reverse('upload', kwargs={'pk': self.pk})
-
 
 
 class Machine(models.Model):

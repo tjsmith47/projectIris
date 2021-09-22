@@ -1,0 +1,127 @@
+{% extends "iris/dashboard.html" %}
+
+{% block title %} Media Gallery {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h1> File Gallery </h1>
+        </div>
+        <div class="title_right">
+          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="container-fluid bg-success align-center text-center mx-0" id="messages">
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+              <li {% if message.tags %} class="h2 {{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2 class="h2">Browse and Download Your Files</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="row-xl-12 justify-content-between">
+                {% if user_files %}
+                  {% for file in user_files %}
+                    <div class="col-md-55">
+                      <div class="thumbnail">
+                        <div class="Title">
+                            <a href="{{ file.file.url }}"  download class="text-dark"><h2 class="h3 text-center align-center mx-0">{{ file.title }}</h2></a>
+                        </div>
+                        <div class="image view view-first">
+                          {% if file.extension == '.jpg' or file.extension == 'jpeg' or file.extension == 'png' %}
+                            <img src="{{ file.file.url }}" alt="" class="img-fluid">
+                          {% elif file.extension == '.mp4' %}
+                            <div class="embed-responsive embed-responsive-16by9">
+                              <video id="video-1_html_api" class="vjs-tech" preload="auto" autoplay >
+                                <source src="{{ file.file.url }}" type="video/mp4" class="embed-responsive">
+                              </video>
+                            </div>
+                          {% elif file.extension == '.html' %}
+                            <embed
+                                src="{{ file.file.url }}"
+                                type="text/html"
+                                frameBorder="0"
+                                scrolling="auto"
+                                height="100%"
+                                width="100%"
+                            ></embed>
+                          {% else %}
+                            <embed
+                                src="{{ file.file.url }}"
+                                type="application/pdf"
+                                frameBorder="0"
+                                scrolling="auto"
+                                height="100%"
+                                width="100%"
+                            ></embed>
+                          {% endif %}
+                          <div class="mask">
+                            <p>{{ file.file.name }}</p>
+                            <div class="tools tools-bottom">
+                              <a href="{{ file.file.url }}"><i class="fa fa-download"></i></a>
+                              {% if file.owner == user %}
+                                <a href="#"><i class="fa fa-pencil"></i></a>
+                                <a href="/file/{{file.id}}/destroy"><i class="fa fa-times"></i></a>
+                              {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                        {% if file.content %}
+                          <p>{{ file.content }}</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <p class="h2 text-center">Please upload files to view them here.</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}

@@ -1,12 +1,7 @@
-from django.urls import path, re_path
+from django.urls import path
 from .views import (
     PostCreateView,
 )
-''' PostListView,
-PostDetailView,
-PostUpdateView,
-PostDeleteView,
-UserPostListView '''
 from . import views
 
 urlpatterns = [
@@ -17,34 +12,19 @@ urlpatterns = [
     #localhost:8000/landing
     path('viewer', views.viewer),
     #localhost:8000/login
-    path('login', views.login, name="login"),
+    path('login', views.login, name='login'),
     #localhost:8000/register
-    path('register', views.register),
+    path('register', views.register, name='reg'),
     #localhost:8000/dashboard
-    path('dashboard', views.dash),
+    path('dashboard', views.dash, name='dash'),
     #localhost:8000/files
-    path('files/', views.files),
+    path('gallery', views.gallery, name='gallery'),
     #localhost:8000/appointments/new
     path('files', PostCreateView.as_view(), name='new'), 
     #localhost:8000/appointments/new
     path('files/upload', views.upload, name='upload'),
     #localhost:8000/thoughts/1/destroy
-    path('file/<int:file_id>/destroy', views.destroy),
+    path('file/<int:file_id>/destroy', views.destroy, name="delete"),
     #localhost:8000/logout
     path('logout', views.logout),
-    re_path(r'^.*\.html', views.iris_html, name='iris'),
-    # The home page
-    #path('', views.index, name='index'),
 ]
-
-''' urlpatterns = [
-    path('', PostListView.as_view(), name='blog-home'),
-    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
-    path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
-    path('post/new/', PostCreateView.as_view(), name='post-create'),
-    path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
-    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
-    path('media/Files/<int:pk>',PostDeleteView.as_view(),name='post-delete' ),
-    path('search/',views.search,name='search' ),
-    path('about/', views.about, name='blog-about'),
-] '''
