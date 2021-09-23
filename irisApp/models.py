@@ -91,7 +91,7 @@ class File(models.Model):
     owner = models.ForeignKey(User, null=True, blank=True, related_name="files", on_delete = models.CASCADE)
     file = models.FileField(null=True, blank=True, upload_to=folder_path)
     content = models.TextField(null=True, blank=True)
-    shared_with = models.ManyToManyField(User, related_name="shared_files", )
+    #shared_with = models.ManyToManyField(User, related_name="shared_files", )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):

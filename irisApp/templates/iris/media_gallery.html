@@ -66,7 +66,7 @@
                             <a href="{{ file.file.url }}"  download class="text-dark"><h2 class="h3 text-center align-center mx-0">{{ file.title }}</h2></a>
                         </div>
                         <div class="image view view-first">
-                          {% if file.extension == '.jpg' or file.extension == 'jpeg' or file.extension == 'png' %}
+                          {% if file.extension == '.jpg' or file.extension == '.jpeg' or file.extension == '.png' %}
                             <img src="{{ file.file.url }}" alt="" class="img-fluid">
                           {% elif file.extension == '.mp4' %}
                             <div class="embed-responsive embed-responsive-16by9">

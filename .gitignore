@@ -5,7 +5,8 @@
 *.log
 *.pot
 *.pyc
-#__pycache__/
+__pycache__/
+migrations/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -119,6 +120,9 @@ celerybeat.pid
 env/
 venv/
 ENV/
+projEnv/
+projEnv2/
+
 env.bak/
 venv.bak/
 
@@ -191,6 +195,7 @@ Temporary Items
 .apdisk
 
 ### VisualStudioCode ###
+/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

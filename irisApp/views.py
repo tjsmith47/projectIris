@@ -92,6 +92,9 @@ def dash(request):
 
 #localhost:8000/gallery
 def gallery(request):
+    if request.method == 'GET':
+        if 'user_id' not in request.session:
+            return redirect('/')
     logged_user = User.objects.get(id=request.session['user_id'])
     user_files = File.objects.filter(owner=logged_user)
     print(user_files)
