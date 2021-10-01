@@ -6,26 +6,15 @@ from django.views.generic import (
     UpdateView,
 )
 from .models import User, File
-from dotenv import load_dotenv
 import bcrypt, os
-load_dotenv()
 
-API_KEY = str(os.getenv('API_KEY'))
-API_SECRET = str(os.getenv('API_SECRET'))
-
-#localhost:8000/
-def index(request):
-    return redirect('/landing')
 
 def getfile(request):
     return serve(request, 'file')
 
-def viewer(request):
-    context = {
-        'key' : API_KEY,
-        'secret' : API_SECRET,
-    }
-    return render(request, 'viewer.html', context)
+#localhost:8000/
+def index(request):
+    return redirect('/landing')
 
 #localhost:8000/landing
 def land(request):
@@ -114,21 +103,6 @@ class FileCreateView(CreateView):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-class FileUpdateView(UpdateView):
-    model = File
-    template_name = 'iris/form_upload.html'
-    fields = ['title', 'file', 'content']
-
-    def form_valid(self, form):
-        form.instance.owner = self.request.user
-        return super().form_valid(form)
-
-    def test_func(self):
-        file = self.get_object()
-        if self.request.user == file.owner:
-            return True
-        return False
-
 #localhost:8000/files/upload
 def upload(request):
     if request.method == 'GET':
@@ -144,6 +118,22 @@ def upload(request):
     file.save()
     print('SUCCESS: ' + file.file.name)
     return redirect('/gallery')
+
+#localhost:8000/files/1/update
+class FileUpdateView(UpdateView):
+    model = File
+    template_name = 'iris/form_upload.html'
+    fields = ['title', 'file', 'content']
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        file = self.get_object()
+        if self.request.user == file.owner:
+            return True
+        return False
 
 #localhost:8000/file/<file_id>/delete
 def destroy(request, file_id):
